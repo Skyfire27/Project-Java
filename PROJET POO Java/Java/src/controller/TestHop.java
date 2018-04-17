@@ -26,7 +26,7 @@ public class TestHop {
     public static void main(String args[]){
         try {
             Connexion local = new Connexion("projet","root","");
-            local.afficher("malade","nom");
+            local.affichermalade();
         } catch (SQLException ex) {
             Logger.getLogger(TestHop.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
