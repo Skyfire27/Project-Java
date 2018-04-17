@@ -2,19 +2,22 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
+
 /*
  * 
  * Librairies importées
  */
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- * 
- * Connexion a votre BDD locale ou à distance sur le serveur de l'ECE via le tunnel SSH
- * 
+ *
+ * Connexion a votre BDD locale ou à distance sur le serveur de l'ECE via le
+ * tunnel SSH
+ *
  * @author segado
  */
 public class Connexion {
@@ -58,21 +61,24 @@ public class Connexion {
 
         //création d'une connexion JDBC à la base 
         conn = DriverManager.getConnection(urlDatabase, loginDatabase, passwordDatabase);
-
-        // création d'un ordre SQL (statement)
+        DatabaseMetaData dmd = conn.getMetaData();
         stmt = conn.createStatement();
-    }
+        }
+    
 
     /**
      * Constructeur avec 4 paramètres : username et password ECE, login et
      * password de la BDD à distance sur le serveur de l'ECE
+     *
      * @param usernameECE
      * @param passwordECE
      * @param loginDatabase
      * @param passwordDatabase
+     * @return 
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException
      */
+    /*
     public Connexion(String usernameECE, String passwordECE, String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException {
         // chargement driver "com.mysql.jdbc.Driver"
         Class.forName("com.mysql.jdbc.Driver");
@@ -94,7 +100,18 @@ public class Connexion {
 
         }
     }
-
+    */
+    /*
+    Accesseurs
+    */
+    public Statement getStmt(){return stmt;}
+    public ResultSet getRset(){return rset;}
+    public ResultSetMetaData getRsetM(){return rsetMeta;}
+    
+    public void setStmt(Statement stmt){this.stmt = stmt;}
+    public void setRset(ResultSet rset){this.rset = rset;}
+    public void setRsetM(ResultSetMetaData rsetMeta){this.rsetMeta = rsetMeta;}
+    
     /**
      * Méthode qui ajoute la table en parametre dans son ArrayList
      *
@@ -115,8 +132,7 @@ public class Connexion {
     }
 
     /**
-     * Méthode qui ajoute la requete de MAJ en parametre dans son
-     * ArrayList
+     * Méthode qui ajoute la requete de MAJ en parametre dans son ArrayList
      *
      * @param requete
      */
@@ -162,8 +178,9 @@ public class Connexion {
 
     /**
      * Methode qui retourne l'ArrayList des champs de la requete en parametre
+     *
      * @param requete
-     * @return 
+     * @return
      * @throws java.sql.SQLException
      */
     public ArrayList remplirChampsRequete(String requete) throws SQLException {
@@ -203,10 +220,14 @@ public class Connexion {
 
     /**
      * Méthode qui execute une requete de MAJ en parametre
+     *
      * @param requeteMaj
      * @throws java.sql.SQLException
      */
     public void executeUpdate(String requeteMaj) throws SQLException {
         stmt.executeUpdate(requeteMaj);
     }
+    
+    
+            
 }
