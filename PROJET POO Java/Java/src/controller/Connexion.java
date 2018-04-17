@@ -62,19 +62,14 @@ public class Connexion {
         DatabaseMetaData dmd = conn.getMetaData();
         //récupération des informations 
         ResultSet tables = dmd.getTables(conn.getCatalog(), "%", "%", null);
-        //affichage des informations 
-        while (tables.next()) {
-            System.out.println("###################################");
-            for (int i = 0; i < tables.getMetaData().getColumnCount(); i++) {
-                String nomColonne = tables.getMetaData().getColumnName(i + 1);
-                Object valeurColonne = tables.getObject(i + 1);
-                System.out.println(nomColonne + " = " + valeurColonne);
-            }
-        }
-
         // création d'un ordre SQL (statement)
         stmt = conn.createStatement();
-
+        //affichage des informations 
+        String sql = "SELECT * FROM malade";
+        tables = stmt.executeQuery(sql);
+        while (tables.next()) {
+            System.out.println(tables.getString("nom"));
+        }
     }
 
     /**
