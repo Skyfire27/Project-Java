@@ -9,6 +9,13 @@ package vue;
  *
  * @author Albert
  */
-public class Fenetre {
+import javax.swing.*;
+import java.awt.*;
+import modele.*;
+import java.util.*;
+import java.io.*;
+import javafx.scene.control.SplitPane;
+
+public class Fenetre extends JFrame{
     
 }
