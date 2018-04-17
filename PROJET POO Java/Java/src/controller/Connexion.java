@@ -2,8 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
+
 /*
  * 
  * Librairies importées
@@ -12,9 +12,10 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
- * 
- * Connexion a votre BDD locale ou à distance sur le serveur de l'ECE via le tunnel SSH
- * 
+ *
+ * Connexion a votre BDD locale ou à distance sur le serveur de l'ECE via le
+ * tunnel SSH
+ *
  * @author segado
  */
 public class Connexion {
@@ -58,14 +59,28 @@ public class Connexion {
 
         //création d'une connexion JDBC à la base 
         conn = DriverManager.getConnection(urlDatabase, loginDatabase, passwordDatabase);
+        DatabaseMetaData dmd = conn.getMetaData();
+        //récupération des informations 
+        ResultSet tables = dmd.getTables(conn.getCatalog(), "%", "%", null);
+        //affichage des informations 
+        while (tables.next()) {
+            System.out.println("###################################");
+            for (int i = 0; i < tables.getMetaData().getColumnCount(); i++) {
+                String nomColonne = tables.getMetaData().getColumnName(i + 1);
+                Object valeurColonne = tables.getObject(i + 1);
+                System.out.println(nomColonne + " = " + valeurColonne);
+            }
+        }
 
         // création d'un ordre SQL (statement)
         stmt = conn.createStatement();
+
     }
 
     /**
      * Constructeur avec 4 paramètres : username et password ECE, login et
      * password de la BDD à distance sur le serveur de l'ECE
+     *
      * @param usernameECE
      * @param passwordECE
      * @param loginDatabase
@@ -115,8 +130,7 @@ public class Connexion {
     }
 
     /**
-     * Méthode qui ajoute la requete de MAJ en parametre dans son
-     * ArrayList
+     * Méthode qui ajoute la requete de MAJ en parametre dans son ArrayList
      *
      * @param requete
      */
@@ -162,8 +176,9 @@ public class Connexion {
 
     /**
      * Methode qui retourne l'ArrayList des champs de la requete en parametre
+     *
      * @param requete
-     * @return 
+     * @return
      * @throws java.sql.SQLException
      */
     public ArrayList remplirChampsRequete(String requete) throws SQLException {
@@ -203,6 +218,7 @@ public class Connexion {
 
     /**
      * Méthode qui execute une requete de MAJ en parametre
+     *
      * @param requeteMaj
      * @throws java.sql.SQLException
      */
