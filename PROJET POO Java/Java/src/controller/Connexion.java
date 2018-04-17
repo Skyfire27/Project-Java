@@ -10,6 +10,8 @@ package controller;
  */
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,17 +62,9 @@ public class Connexion {
         //création d'une connexion JDBC à la base 
         conn = DriverManager.getConnection(urlDatabase, loginDatabase, passwordDatabase);
         DatabaseMetaData dmd = conn.getMetaData();
-        //récupération des informations 
-        ResultSet tables = dmd.getTables(conn.getCatalog(), "%", "%", null);
-        // création d'un ordre SQL (statement)
         stmt = conn.createStatement();
-        //affichage des informations 
-        String sql = "SELECT * FROM malade";
-        tables = stmt.executeQuery(sql);
-        while (tables.next()) {
-            System.out.println(tables.getString("nom"));
         }
-    }
+    
 
     /**
      * Constructeur avec 4 paramètres : username et password ECE, login et
@@ -222,4 +216,18 @@ public class Connexion {
     public void executeUpdate(String requeteMaj) throws SQLException {
         stmt.executeUpdate(requeteMaj);
     }
+    
+    public void afficher(String table, String infotable){
+        try {
+            //affichage des informations
+            String sql = "SELECT * FROM "+table;
+            rset = stmt.executeQuery(sql);
+            while (rset.next()) {
+                System.out.println(rset.getString(infotable));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Connexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+            
 }
