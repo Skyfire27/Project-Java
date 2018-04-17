@@ -23,6 +23,7 @@ public class Fenetre extends JFrame
         setTitle("Hopital d'Albert et Yann");
         setSize(600,500);
         pan=new JPanel();//instancier le panneau
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
     
     public void affiche(){
