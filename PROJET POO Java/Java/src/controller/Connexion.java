@@ -83,6 +83,7 @@ public class Connexion {
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException
      */
+    /*
     public Connexion(String usernameECE, String passwordECE, String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException {
         // chargement driver "com.mysql.jdbc.Driver"
         Class.forName("com.mysql.jdbc.Driver");
@@ -104,7 +105,8 @@ public class Connexion {
 
         }
     }
-
+    */
+    
     /**
      * Méthode qui ajoute la table en parametre dans son ArrayList
      *
