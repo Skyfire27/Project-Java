@@ -8,12 +8,14 @@ package controller;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vue.Fenetre;
 
 /**
  *
  * @author Albert
  */
 public class TestHop {
+    private static Fenetre fen=new Fenetre();
     public static void main(String args[]){
         try {
             Connexion local = new Connexion("projet","root","");
@@ -22,8 +24,7 @@ public class TestHop {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TestHop.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+        fen.affiche();
     }
     
 }
