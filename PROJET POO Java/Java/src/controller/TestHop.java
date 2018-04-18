@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modele.Recherche;
 
 import vue.Fenetre;
 
@@ -39,6 +40,8 @@ public class TestHop {
             while (its.hasNext()) {
                 System.out.println(its.next());
             }
+            Recherche rech = new Recherche();
+            rech.saisie();            
 
         } catch (SQLException ex) {
             Logger.getLogger(TestHop.class.getName()).log(Level.SEVERE, null, ex);
