@@ -19,7 +19,7 @@ public class TestHop {
 
     public static void main(String args[]) {
         Recherche rech = new Recherche();
-        rech.saisie();
+        rech.existance();
         fen.affiche();
     }
 }
