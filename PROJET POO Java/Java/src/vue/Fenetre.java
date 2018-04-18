@@ -39,7 +39,7 @@ public class Fenetre extends JFrame implements ActionListener
         b2=new JButton("Mise à jour");
         b3=new JButton("Reporting");
         b4=new JButton("Quitter");
-        b5=new JButton("Précédent");
+        //b5=new JButton("Précédent"); test pour un bouton de retour
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
     
@@ -57,7 +57,7 @@ public class Fenetre extends JFrame implements ActionListener
         b2.setPreferredSize(new Dimension(200,50));
         b3.setPreferredSize(new Dimension(200,50));
         b4.setPreferredSize(new Dimension(100,50));
-        b5.setPreferredSize(new Dimension(100,50));
+        //b5.setPreferredSize(new Dimension(100,50));
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
@@ -77,31 +77,26 @@ public class Fenetre extends JFrame implements ActionListener
         if(e.getSource()==b1){
             pan.setVisible(false);
             pan2.setLayout(new FlowLayout());
-            pan2.add(b5);
-            b5.addActionListener(this);
+            pan2.add(b4);
             add(pan2);
             this.setVisible(true);
         }
         if(e.getSource()==b2){
             pan.setVisible(false);
             pan2.setLayout(new FlowLayout());
-            pan2.add(b5);
+            pan2.add(b4);
             add(pan2);
             this.setVisible(true);
         }
         if(e.getSource()==b3){
             pan.setVisible(false);
             pan2.setLayout(new FlowLayout());
-            pan2.add(b5);
+            pan2.add(b4);
             add(pan2);
             this.setVisible(true);
         }
         if(e.getSource()==b4){
             System.exit(0);
-        }
-        if(e.getSource()==b5){
-            pan.setVisible(true);
-            pan2.setVisible(false);
         }
     }
 }
