@@ -20,6 +20,7 @@ import java.io.*;
 public class Fenetre extends JFrame implements ActionListener
 {
     private JPanel pan;//fenêtre de visualisation de l'interface d'origine
+    private JPanel pan2;
     private JLabel lab;//instancie la texte
     // instancie les boutons
     private JButton b1;
@@ -30,6 +31,7 @@ public class Fenetre extends JFrame implements ActionListener
         setTitle("Hopital d'Albert et Yann");
         setSize(400,500);
         pan=new JPanel();//instancier le panneau
+        pan2=new JPanel();//instancier le deuxième panneau
         lab=new JLabel("Database utilisée: 'projet' ");
         b1=new JButton("Recherche d'information");
         b2=new JButton("Mise à jour");
@@ -54,6 +56,7 @@ public class Fenetre extends JFrame implements ActionListener
         pan.add(b1);
         pan.add(b2);
         pan.add(b3);
+        b1.addActionListener(this);
         add(pan);
         this.setVisible(true);
     }
@@ -61,6 +64,10 @@ public class Fenetre extends JFrame implements ActionListener
     @Override
     public void actionPerformed (ActionEvent e)
     {
-        
+        if(e.getSource()==b1){
+            pan2.setLayout(new FlowLayout());
+            add(pan2);
+            this.setVisible(true);
+        }
     }
 }
