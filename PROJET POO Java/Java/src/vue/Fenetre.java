@@ -26,17 +26,20 @@ public class Fenetre extends JFrame
     
     public Fenetre(){
         setTitle("Hopital d'Albert et Yann");
-        setSize(600,500);
+        setSize(300,400);
         pan=new JPanel();//instancier le panneau
-        lab=new JLabel("projet");
-        b1=new JButton("test");
-        b2=new JButton("test");
-        b3=new JButton("test");
+        lab=new JLabel("Database utilisée: 'projet' ");
+        b1=new JButton("Recherche d'information");
+        b2=new JButton("Mise à jour");
+        b3=new JButton("Reporting");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
     
     public void affiche(){
-        pan.setLayout(new FlowLayout());//mise en forme de bouton à la suite
+        FlowLayout fl=new FlowLayout();
+        fl.setHgap(100);
+        fl.setVgap(50);
+        pan.setLayout(fl);//mise en forme de bouton à la suite
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
