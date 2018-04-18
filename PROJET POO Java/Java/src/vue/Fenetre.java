@@ -36,7 +36,7 @@ public class Fenetre extends JFrame implements ActionListener
     
     public Fenetre(){
         setTitle("Hopital d'Albert et Yann");
-        setSize(400,500);
+        setSize(500,600);
         pan=new JPanel();//instancier le panneau
         pan2=new JPanel();//instancier le deuxième panneau
         lab=new JLabel("Database utilisée: 'projet' ");
@@ -102,7 +102,7 @@ public class Fenetre extends JFrame implements ActionListener
             lab3=new JLabel("Saisissez l'information recherchée");
             jtf.setPreferredSize(new Dimension(200,30));
             FlowLayout fl2=new FlowLayout();
-            fl2.setHgap(50);
+            fl2.setHgap(100);
             fl2.setVgap(20);
             pan2.setLayout(fl2);
             pan2.add(lab);
