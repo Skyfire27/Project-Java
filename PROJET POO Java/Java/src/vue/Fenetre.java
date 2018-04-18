@@ -22,12 +22,17 @@ public class Fenetre extends JFrame implements ActionListener
     private JPanel pan;//fenêtre de visualisation de l'interface d'origine
     private JPanel pan2;
     private JLabel lab;//instancie la texte
+    private JLabel lab2;
+    private JLabel lab3;
     // instancie les boutons
     private JButton b1;
     private JButton b2;
     private JButton b3;
     private JButton b4;
     private JButton b5;
+    private JComboBox box;
+    private JComboBox box2;
+    private JTextField jtf;
     
     public Fenetre(){
         setTitle("Hopital d'Albert et Yann");
@@ -40,6 +45,9 @@ public class Fenetre extends JFrame implements ActionListener
         b3=new JButton("Reporting");
         b4=new JButton("Quitter");
         //b5=new JButton("Précédent"); test pour un bouton de retour
+        box=new JComboBox();
+        box2=new JComboBox();
+        jtf=new JTextField();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
     
@@ -58,6 +66,19 @@ public class Fenetre extends JFrame implements ActionListener
         b3.setPreferredSize(new Dimension(200,50));
         b4.setPreferredSize(new Dimension(100,50));
         //b5.setPreferredSize(new Dimension(100,50));
+        box.setPreferredSize(new Dimension(200,30));
+        box2.setPreferredSize(new Dimension(200,30));
+        box.addItem("Option 1");
+        box.addItem("Option 2");
+        box.addItem("Option 3");
+        box.addItem("Option 4");
+        box.addItem("Option 5");
+        box.addItem("Option 6");
+        box.addItem("Option 7");
+        box.addItem("Option 8");
+        box2.addItem("Numéro, Téléphone,...");
+        box2.addItem("Nom, Prénom");
+        box2.addItem("Adresse");
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
@@ -76,7 +97,20 @@ public class Fenetre extends JFrame implements ActionListener
     {
         if(e.getSource()==b1){
             pan.setVisible(false);
-            pan2.setLayout(new FlowLayout());
+            lab=new JLabel("Quel table voulez-vous?");
+            lab2=new JLabel("Que chercher vous?");
+            lab3=new JLabel("Saisissez l'information recherchée");
+            jtf.setPreferredSize(new Dimension(200,30));
+            FlowLayout fl2=new FlowLayout();
+            fl2.setHgap(50);
+            fl2.setVgap(20);
+            pan2.setLayout(fl2);
+            pan2.add(lab);
+            pan2.add(box);
+            pan2.add(lab2);
+            pan2.add(box2);
+            pan2.add(lab3);
+            pan2.add(jtf);
             pan2.add(b4);
             add(pan2);
             this.setVisible(true);
