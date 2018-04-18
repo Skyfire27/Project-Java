@@ -11,6 +11,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,11 +24,22 @@ import vue.Fenetre;
  */
 public class TestHop {
 
-    private static Fenetre fen=new Fenetre();
-    public static void main(String args[]){
+    private static Fenetre fen = new Fenetre();
+
+    public static void main(String args[]) {
         try {
-            Connexion local = new Connexion("projet","root","");
-            local.affichermalade();
+            Connexion local = new Connexion("projet", "root", "");
+            ArrayList<String> liste = local.remplirChampsTable("malade");
+            ArrayList<String> listebis = local.remplirChampsRequete("select * from malade");
+            Iterator<String> it = liste.iterator();
+            Iterator<String> its = listebis.iterator();
+            while (it.hasNext()) {
+                System.out.println(it.next());
+            }
+            while (its.hasNext()) {
+                System.out.println(its.next());
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(TestHop.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
