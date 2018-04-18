@@ -100,6 +100,17 @@ public class Connexion {
         }
     }
     */
+    /*
+    Accesseur
+    */
+    public Statement getStmt(){return stmt;}
+    public ResultSet getRset(){return rset;}
+    public ResultSetMetaData getRsetM(){return rsetMeta;}
+    
+    public void setStmt(Statement stmt){this.stmt = stmt;}
+    public void setRset(ResultSet rset){this.rset = rset;}
+    public void setRsetM(ResultSetMetaData rsetMeta){this.rsetMeta = rsetMeta;}
+    
     
     /**
      * Méthode qui ajoute la table en parametre dans son ArrayList
@@ -224,6 +235,19 @@ public class Connexion {
             rset = stmt.executeQuery(sql);
             while (rset.next()) {
                 System.out.println(rset.getString(infotable));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Connexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void affichermalade(){
+        try {
+            //affichage des informations
+            String sql = "SELECT * FROM malade";
+            rset = stmt.executeQuery(sql);
+            while (rset.next()) {
+                System.out.println(rset.getString("numero")+ " "+ rset.getString("nom")+ " " + rset.getString("prenom"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Connexion.class.getName()).log(Level.SEVERE, null, ex);
