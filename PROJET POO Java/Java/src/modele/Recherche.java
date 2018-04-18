@@ -6,6 +6,7 @@
 package modele;
 
 import controller.Connexion;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,6 +24,7 @@ public class Recherche {
     private boolean valider;
     private String saisie;
     private String requete;
+    private ResultSet rSet;
     private int nombre;
 
     public Recherche() {
@@ -52,15 +54,16 @@ public class Recherche {
             Scanner sc = new Scanner(System.in);
             System.out.println("Dans quel table voulez vous recherchez");
             saisie = sc.nextLine();
-            requete = "select * from " + saisie;
-            local.setRset(local.getStmt().executeQuery(requete));
-            System.out.println("Qui rechercher vous ?");
+            System.out.println("Que rechercher vous ?");
             String demande = sc.nextLine();
-            while (local.getRset().next()) {
-                String champs = local.getRset().getString(2);
-                if (champs == null ? demande == null : champs.equals(demande)) {
-                    System.out.println(champs + "," + local.getRset().getString(3));
-                }
+            requete = "select "+demande+" from " + saisie;
+            rSet = local.getStmt().executeQuery(requete);
+            System.out.println("Quoi en particulier ?");
+            String query = sc.nextLine();
+            ArrayList<String> liste = local.remplirChampsRequete(requete);
+            Iterator<String> it = liste.iterator();
+            while (it.hasNext()) {
+                System.out.println(it.next());
             }
         } catch (SQLException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
