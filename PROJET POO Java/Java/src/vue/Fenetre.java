@@ -11,11 +11,13 @@ package vue;
  */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import modele.*;
 import java.util.*;
 import java.io.*;
 
-public class Fenetre extends JFrame
+public class Fenetre extends JFrame implements ActionListener
 {
     private JPanel pan;//fenêtre de visualisation de l'interface d'origine
     private JLabel lab;//instancie la texte
@@ -46,5 +48,11 @@ public class Fenetre extends JFrame
         pan.add(b3);
         add(pan);
         this.setVisible(true);
+    }
+    
+    @Override
+    public void actionPerformed (ActionEvent e)
+    {
+        
     }
 }
