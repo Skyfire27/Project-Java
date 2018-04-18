@@ -10,6 +10,8 @@ package controller;
  */
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,16 +62,7 @@ public class Connexion {
         //création d'une connexion JDBC à la base 
         conn = DriverManager.getConnection(urlDatabase, loginDatabase, passwordDatabase);
         DatabaseMetaData dmd = conn.getMetaData();
-        //récupération des informations 
-        ResultSet tables = dmd.getTables(conn.getCatalog(), "%", "%", null);
-        // création d'un ordre SQL (statement)
         stmt = conn.createStatement();
-        //affichage des informations 
-        String sql = "SELECT * FROM malade";
-        tables = stmt.executeQuery(sql);
-        while (tables.next()) {
-            System.out.println(tables.getString("nom"));
-        }
     }
 
     /**
@@ -105,8 +98,43 @@ public class Connexion {
 
         }
     }
-    */
+     */
+    /**
+     * Accesseur de la variable stmt
+     * @return stmt variable de type Statement
+     */
+    public Statement getStmt() {
+        return stmt;
+    }
     
+    /**
+     * Accesseur de la variable rset
+     * @return rset variable de type ResultSet
+     */
+    public ResultSet getRset() {
+        return rset;
+    }
+
+    /**
+     * Accesseur de la variable rsetMeta
+     * @return rsetMeta variable de type ResultSetMetaData
+     */
+    public ResultSetMetaData getRsetM() {
+        return rsetMeta;
+    }
+
+    public void setStmt(Statement stmt) {
+        this.stmt = stmt;
+    }
+
+    public void setRset(ResultSet rset) {
+        this.rset = rset;
+    }
+
+    public void setRsetM(ResultSetMetaData rsetMeta) {
+        this.rsetMeta = rsetMeta;
+    }
+
     /**
      * Méthode qui ajoute la table en parametre dans son ArrayList
      *
@@ -222,4 +250,32 @@ public class Connexion {
     public void executeUpdate(String requeteMaj) throws SQLException {
         stmt.executeUpdate(requeteMaj);
     }
+    
+
+    public void afficher(String table, String infotable) {
+        try {
+            //affichage des informations
+            String sql = "SELECT * FROM " + table;
+            rset = stmt.executeQuery(sql);
+            while (rset.next()) {
+                System.out.println(rset.getString(infotable));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Connexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void affichermalade() {
+        try {
+            //affichage des informations
+            String sql = "SELECT * FROM malade";
+            rset = stmt.executeQuery(sql);
+            while (rset.next()) {
+                System.out.println(rset.getString("numero") + " " + rset.getString("nom") + " " + rset.getString("prenom"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Connexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

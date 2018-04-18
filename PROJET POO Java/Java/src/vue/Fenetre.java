@@ -7,7 +7,7 @@ package vue;
 
 /**
  *
- * @author Albert
+ * @author Albert_Yann
  */
 import javax.swing.*;
 import java.awt.*;
@@ -28,7 +28,7 @@ public class Fenetre extends JFrame implements ActionListener
     
     public Fenetre(){
         setTitle("Hopital d'Albert et Yann");
-        setSize(300,400);
+        setSize(400,500);
         pan=new JPanel();//instancier le panneau
         lab=new JLabel("Database utilisée: 'projet' ");
         b1=new JButton("Recherche d'information");
@@ -37,11 +37,19 @@ public class Fenetre extends JFrame implements ActionListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
     
+    /**
+     * methode pour afficher la fenêtre
+     * 
+     */
     public void affiche(){
         FlowLayout fl=new FlowLayout();
         fl.setHgap(100);
         fl.setVgap(50);
         pan.setLayout(fl);//mise en forme de bouton à la suite
+        //
+        b1.setPreferredSize(new Dimension(200,50));
+        b2.setPreferredSize(new Dimension(200,50));
+        b3.setPreferredSize(new Dimension(200,50));
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
