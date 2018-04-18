@@ -26,6 +26,8 @@ public class Fenetre extends JFrame implements ActionListener
     private JButton b1;
     private JButton b2;
     private JButton b3;
+    private JButton b4;
+    private JButton b5;
     
     public Fenetre(){
         setTitle("Hopital d'Albert et Yann");
@@ -36,6 +38,8 @@ public class Fenetre extends JFrame implements ActionListener
         b1=new JButton("Recherche d'information");
         b2=new JButton("Mise à jour");
         b3=new JButton("Reporting");
+        b4=new JButton("Quitter");
+        //b5=new JButton("Précédent"); test pour un bouton de retour
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
     
@@ -52,11 +56,17 @@ public class Fenetre extends JFrame implements ActionListener
         b1.setPreferredSize(new Dimension(200,50));
         b2.setPreferredSize(new Dimension(200,50));
         b3.setPreferredSize(new Dimension(200,50));
+        b4.setPreferredSize(new Dimension(100,50));
+        //b5.setPreferredSize(new Dimension(100,50));
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
         pan.add(b3);
+        pan.add(b4);
         b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
         add(pan);
         this.setVisible(true);
     }
@@ -67,8 +77,26 @@ public class Fenetre extends JFrame implements ActionListener
         if(e.getSource()==b1){
             pan.setVisible(false);
             pan2.setLayout(new FlowLayout());
+            pan2.add(b4);
             add(pan2);
             this.setVisible(true);
+        }
+        if(e.getSource()==b2){
+            pan.setVisible(false);
+            pan2.setLayout(new FlowLayout());
+            pan2.add(b4);
+            add(pan2);
+            this.setVisible(true);
+        }
+        if(e.getSource()==b3){
+            pan.setVisible(false);
+            pan2.setLayout(new FlowLayout());
+            pan2.add(b4);
+            add(pan2);
+            this.setVisible(true);
+        }
+        if(e.getSource()==b4){
+            System.exit(0);
         }
     }
 }
