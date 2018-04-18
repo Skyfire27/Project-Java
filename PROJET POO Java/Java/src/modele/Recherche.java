@@ -4,11 +4,16 @@
  * and open the template in the editor.
  */
 package modele;
+import controller.Connexion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Albert
  */
 public class Recherche {
+   
     
 }
