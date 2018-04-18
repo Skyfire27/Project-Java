@@ -65,6 +65,7 @@ public class Fenetre extends JFrame implements ActionListener
     public void actionPerformed (ActionEvent e)
     {
         if(e.getSource()==b1){
+            pan.setVisible(false);
             pan2.setLayout(new FlowLayout());
             add(pan2);
             this.setVisible(true);
