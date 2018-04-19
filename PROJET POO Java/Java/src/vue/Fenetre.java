@@ -32,7 +32,6 @@ public class Fenetre extends JFrame implements ActionListener
 //    private JButton b5;
     private JButton bv;
     private JComboBox box;
-    private JComboBox box2;
     private JTextField jtf, jtf2;
     private String don,don2;
     private String choix1;
