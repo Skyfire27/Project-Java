@@ -82,13 +82,7 @@ public class Fenetre extends JFrame implements ActionListener
         box.addItem("infirmier");
         box.addItem("malade");
         box.addItem("service");
-        box.addItem("soigne");  
-<<<<<<< HEAD
-        box2.addItem("Numéro");
-        box2.addItem("Nom, Prénom");
-        box2.addItem("Adresse");
-=======
->>>>>>> javasql
+        box.addItem("soigne"); 
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
@@ -171,12 +165,7 @@ public class Fenetre extends JFrame implements ActionListener
             choix1= (String) box.getSelectedItem();
             don=jtf.getText();
             don2=jtf2.getText();
-<<<<<<< HEAD
-            //rech.existance(choix1,don,don2);
-            rech.detail(choix1,don, don2);
-=======
             rech.verifier(choix1,don,don2);
->>>>>>> javasql
         }
     }
 }
