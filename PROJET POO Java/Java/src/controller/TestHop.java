@@ -5,16 +5,7 @@
  */
 package controller;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import modele.Recherche;
 
 import vue.Fenetre;
 
@@ -23,28 +14,11 @@ import vue.Fenetre;
  * @author Albert
  */
 public class TestHop {
-
-    private static Fenetre fen = new Fenetre();
+    private static Recherche rech = new Recherche();
+    private static Fenetre fen = new Fenetre(rech);
 
     public static void main(String args[]) {
-        try {
-            Connexion local = new Connexion("projet", "root", "");
-            ArrayList<String> liste = local.remplirChampsTable("malade");
-            ArrayList<String> listebis = local.remplirChampsRequete("select * from malade");
-            Iterator<String> it = liste.iterator();
-            Iterator<String> its = listebis.iterator();
-            while (it.hasNext()) {
-                System.out.println(it.next());
-            }
-            while (its.hasNext()) {
-                System.out.println(its.next());
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(TestHop.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TestHop.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         fen.affiche();
     }
 }
