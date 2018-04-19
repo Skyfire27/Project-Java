@@ -84,7 +84,6 @@ public class Fenetre extends JFrame implements ActionListener
         box.addItem("malade");
         box.addItem("service");
         box.addItem("soigne");  
-        box2.addItem("Numéro");
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
@@ -139,7 +138,6 @@ public class Fenetre extends JFrame implements ActionListener
             pan2.add(lab);
             pan2.add(box);
             pan2.add(lab2);
-            pan2.add(box2);
             pan2.add(lab3);
             pan2.add(jtf);
             pan2.add(b4);

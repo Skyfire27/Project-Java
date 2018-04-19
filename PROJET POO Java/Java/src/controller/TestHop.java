@@ -6,7 +6,6 @@
 package controller;
 
 import modele.Recherche;
-
 import vue.Fenetre;
 
 /**
