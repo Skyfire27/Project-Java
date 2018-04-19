@@ -37,6 +37,8 @@ public class Fenetre extends JFrame implements ActionListener
     private JTextField jtf;
     private ItemListener il;
     private String don;
+    private String choix1;
+    private String choix2;
     
     public Fenetre(){
         setTitle("Hopital d'Albert et Yann");
@@ -164,9 +166,11 @@ public class Fenetre extends JFrame implements ActionListener
 //            pan2.setVisible(false);
 //        }
         else if(e.getSource()==bv){
+            choix1= (String) box.getSelectedItem();
+            choix2= (String) box2.getSelectedItem();
             don=jtf.getText();
-            System.out.println(box.getSelectedItem());
-            System.out.println(box2.getSelectedItem());
+            System.out.println(choix1);
+            System.out.println(choix2);
             System.out.println(don);
         }
     }
