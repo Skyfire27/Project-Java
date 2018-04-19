@@ -30,7 +30,7 @@ public class Fenetre extends JFrame implements ActionListener
     private JButton b2;
     private JButton b3;
     private JButton b4;
-    private JButton b5;
+//    private JButton b5;
     private JButton bv;
     private JComboBox box;
     private JComboBox box2;
@@ -48,7 +48,7 @@ public class Fenetre extends JFrame implements ActionListener
         b2=new JButton("Mise à jour");
         b3=new JButton("Reporting");
         b4=new JButton("Quitter");
-        //b5=new JButton("Précédent"); test pour un bouton de retour
+//        b5=new JButton("Précédent"); test pour le bouton précédent
         bv=new JButton("Valider");
         box=new JComboBox();
         box2=new JComboBox();
@@ -70,7 +70,8 @@ public class Fenetre extends JFrame implements ActionListener
         b2.setPreferredSize(new Dimension(200,50));
         b3.setPreferredSize(new Dimension(200,50));
         b4.setPreferredSize(new Dimension(100,50));
-        //b5.setPreferredSize(new Dimension(100,50));
+//        b5.setPreferredSize(new Dimension(100,50));
+        bv.setPreferredSize(new Dimension(100,50));
         box.setPreferredSize(new Dimension(200,30));
         box2.setPreferredSize(new Dimension(200,30));
         box.addItem("Option 1");
@@ -93,6 +94,7 @@ public class Fenetre extends JFrame implements ActionListener
         b2.addActionListener(this);
         b3.addActionListener(this);
         b4.addActionListener(this);
+//        b5.addActionListener(this);
         bv.addActionListener(this);
         add(pan);
         this.setVisible(true);
@@ -117,21 +119,39 @@ public class Fenetre extends JFrame implements ActionListener
             pan2.add(box2);
             pan2.add(lab3);
             pan2.add(jtf);
-            pan2.add(bv);
             pan2.add(b4);
+//            pan2.add(b5);
+            pan2.add(bv);
             add(pan2);
             this.setVisible(true);
         }
         else if(e.getSource()==b2){
             pan.setVisible(false);
-            pan2.setLayout(new FlowLayout());
+            FlowLayout fl2=new FlowLayout();
+            fl2.setHgap(100);
+            fl2.setVgap(20);
+            pan2.setLayout(fl2);
+            lab=new JLabel("Dans quel table voulez-vous ajoutée?");
+            lab2=new JLabel("Quel information voulez-vous ajoutée?");
+            lab3=new JLabel("Entrez l'information");
+            jtf.setPreferredSize(new Dimension(200,30));
+            pan2.add(lab);
+            pan2.add(box);
+            pan2.add(lab2);
+            pan2.add(box2);
+            pan2.add(lab3);
+            pan2.add(jtf);
             pan2.add(b4);
+            pan2.add(bv);
             add(pan2);
             this.setVisible(true);
         }
         else if(e.getSource()==b3){
             pan.setVisible(false);
-            pan2.setLayout(new FlowLayout());
+            FlowLayout fl2=new FlowLayout();
+            fl2.setHgap(100);
+            fl2.setVgap(20);
+            pan2.setLayout(fl2);
             pan2.add(b4);
             add(pan2);
             this.setVisible(true);
@@ -139,6 +159,10 @@ public class Fenetre extends JFrame implements ActionListener
         else if(e.getSource()==b4){
             System.exit(0);
         }
+//        else if(e.getSource()==b5){
+//            pan.setVisible(true);
+//            pan2.setVisible(false);
+//        }
         else if(e.getSource()==bv){
             don=jtf.getText();
             System.out.println(box.getSelectedItem());
