@@ -49,7 +49,7 @@ public class Recherche {
         }
     }
 
-    public void saisie() {
+    public void existance() {
         try {
             Scanner sc = new Scanner(System.in);
             System.out.println("Dans quel table voulez vous recherchez");
@@ -60,10 +60,16 @@ public class Recherche {
             rSet = local.getStmt().executeQuery(requete);
             System.out.println("Quoi en particulier ?");
             String query = sc.nextLine();
-            ArrayList<String> liste = local.remplirChampsRequete(requete);
-            Iterator<String> it = liste.iterator();
-            while (it.hasNext()) {
-                System.out.println(it.next());
+            while (rSet.next()) {
+                String champs = rSet.getString(1);
+                if (champs == null ? query == null : champs.equals(query)){ 
+                    valider = true;         
+                } 
+            }
+            if (valider == true){
+                 System.out.println("Le "+ saisie+ " au " + demande + " de " + query+ " existe");
+            }else{
+                 System.out.println("Le "+ saisie+ " au " + demande + " de " + query+ " n'existe pas"); 
             }
         } catch (SQLException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
