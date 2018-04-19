@@ -167,6 +167,7 @@ public class Fenetre extends JFrame implements ActionListener
         else if(e.getSource()==bv2){
             pan2.setVisible(false);
             add(pan3);
+            this.setVisible(true);
         }
     }
 }
