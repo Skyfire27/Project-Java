@@ -32,7 +32,6 @@ public class Fenetre extends JFrame implements ActionListener
 //    private JButton b5;
     private JButton bv;
     private JComboBox box;
-    private JComboBox box2;
     private JTextField jtf, jtf2;
     private String don,don2;
     private String choix1;
@@ -166,7 +165,6 @@ public class Fenetre extends JFrame implements ActionListener
             choix1= (String) box.getSelectedItem();
             don=jtf.getText();
             don2=jtf2.getText();
-            //rech.existance(choix1,don,don2);
             rech.detail(choix1,don, don2);
         }
     }
