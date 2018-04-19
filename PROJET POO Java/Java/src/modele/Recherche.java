@@ -49,7 +49,7 @@ public class Recherche {
         }
     }
 
-    public void saisie() {
+    public void existance() {
         try {
             Scanner sc = new Scanner(System.in);
             System.out.println("Dans quel table voulez vous recherchez");
