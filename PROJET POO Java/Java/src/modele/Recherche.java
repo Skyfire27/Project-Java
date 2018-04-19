@@ -53,11 +53,10 @@ public class Recherche {
         try {
 
             requete = "select "+data+" from " + table;
-            System.out.println(requete);
             rSet = local.getStmt().executeQuery(requete);
             while (rSet.next()) {
                 String champs = rSet.getString(1);
-                if (champs == null ? data == null : champs.equals(data)){ 
+                if (champs == null ? demande == null : champs.equals(demande)){ 
                     valider = true;         
                 } 
             }
