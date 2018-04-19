@@ -59,6 +59,7 @@ public class Fenetre extends JFrame implements ActionListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
     
+    
     /**
      * methode pour afficher la fenêtre
      * 
@@ -86,7 +87,7 @@ public class Fenetre extends JFrame implements ActionListener
         box.addItem("malade");
         box.addItem("service");
         box.addItem("soigne");  
-        box2.addItem("Numéro, Téléphone,...");
+        box2.addItem("Numéro");
         box2.addItem("Nom, Prénom");
         box2.addItem("Adresse");
         pan.add(lab);
@@ -174,7 +175,8 @@ public class Fenetre extends JFrame implements ActionListener
             choix2= (String) box2.getSelectedItem();
             don=jtf.getText();
             don2=jtf2.getText();
-            rech.existance(choix1,don,don2);
+            //rech.existance(choix1,don,don2);
+            rech.detail(choix1,don, don2);
         }
     }
 }
