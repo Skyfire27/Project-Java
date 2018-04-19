@@ -34,13 +34,15 @@ public class Fenetre extends JFrame implements ActionListener
     private JButton bv;
     private JComboBox box;
     private JComboBox box2;
-    private JTextField jtf;
+    private JTextField jtf, jtf2;
     private ItemListener il;
-    private String don;
+    private String don,don2;
     private String choix1;
     private String choix2;
+    private Recherche rech;
     
-    public Fenetre(){
+    public Fenetre(Recherche rech){
+        this.rech =rech;
         setTitle("Hopital d'Albert et Yann");
         setSize(500,600);
         pan=new JPanel();//instancier le panneau
@@ -55,12 +57,14 @@ public class Fenetre extends JFrame implements ActionListener
         box=new JComboBox();
         box2=new JComboBox();
         jtf=new JTextField();
+        jtf2=new JTextField();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
     
     /**
      * methode pour afficher la fenêtre
      * 
+     * @param rech
      */
     public void affiche(){
         FlowLayout fl=new FlowLayout();
@@ -76,14 +80,14 @@ public class Fenetre extends JFrame implements ActionListener
         bv.setPreferredSize(new Dimension(100,50));
         box.setPreferredSize(new Dimension(200,30));
         box2.setPreferredSize(new Dimension(200,30));
-        box.addItem("Option 1");
-        box.addItem("Option 2");
-        box.addItem("Option 3");
-        box.addItem("Option 4");
-        box.addItem("Option 5");
-        box.addItem("Option 6");
-        box.addItem("Option 7");
-        box.addItem("Option 8");
+        box.addItem("chambre");
+        box.addItem("docteur");
+        box.addItem("employe");
+        box.addItem("hospitalisation");
+        box.addItem("infirmier");
+        box.addItem("malade");
+        box.addItem("service");
+        box.addItem("soigne");  
         box2.addItem("Numéro, Téléphone,...");
         box2.addItem("Nom, Prénom");
         box2.addItem("Adresse");
@@ -109,8 +113,9 @@ public class Fenetre extends JFrame implements ActionListener
             pan.setVisible(false);
             lab=new JLabel("Quel table voulez-vous?");
             lab2=new JLabel("Que chercher vous?");
-            lab3=new JLabel("Saisissez l'information recherchée");
             jtf.setPreferredSize(new Dimension(200,30));
+            lab3=new JLabel("Saisissez l'information recherchée");
+            jtf2.setPreferredSize(new Dimension(200,30));
             FlowLayout fl2=new FlowLayout();
             fl2.setHgap(100);
             fl2.setVgap(20);
@@ -118,9 +123,9 @@ public class Fenetre extends JFrame implements ActionListener
             pan2.add(lab);
             pan2.add(box);
             pan2.add(lab2);
-            pan2.add(box2);
-            pan2.add(lab3);
             pan2.add(jtf);
+            pan2.add(lab3);
+            pan2.add(jtf2);
             pan2.add(b4);
 //            pan2.add(b5);
             pan2.add(bv);
@@ -137,6 +142,7 @@ public class Fenetre extends JFrame implements ActionListener
             lab2=new JLabel("Quel information voulez-vous ajoutée?");
             lab3=new JLabel("Entrez l'information");
             jtf.setPreferredSize(new Dimension(200,30));
+            
             pan2.add(lab);
             pan2.add(box);
             pan2.add(lab2);
@@ -169,9 +175,8 @@ public class Fenetre extends JFrame implements ActionListener
             choix1= (String) box.getSelectedItem();
             choix2= (String) box2.getSelectedItem();
             don=jtf.getText();
-            System.out.println(choix1);
-            System.out.println(choix2);
-            System.out.println(don);
+            don2=jtf2.getText();
+            rech.existance(choix1,don,don2);
         }
     }
 }

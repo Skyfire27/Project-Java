@@ -14,12 +14,11 @@ import vue.Fenetre;
  * @author Albert
  */
 public class TestHop {
-
-    private static Fenetre fen = new Fenetre();
+    private static Recherche rech = new Recherche();
+    private static Fenetre fen = new Fenetre(rech);
 
     public static void main(String args[]) {
-        Recherche rech = new Recherche();
-        rech.existance();
+        
         fen.affiche();
     }
 }

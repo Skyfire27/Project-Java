@@ -49,27 +49,22 @@ public class Recherche {
         }
     }
 
-    public void existance() {
+    public void existance(String table, String data, String demande) {
         try {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Dans quel table voulez vous recherchez");
-            saisie = sc.nextLine();
-            System.out.println("Que rechercher vous ?");
-            String demande = sc.nextLine();
-            requete = "select "+demande+" from " + saisie;
+
+            requete = "select "+data+" from " + table;
+            System.out.println(requete);
             rSet = local.getStmt().executeQuery(requete);
-            System.out.println("Quoi en particulier ?");
-            String query = sc.nextLine();
             while (rSet.next()) {
                 String champs = rSet.getString(1);
-                if (champs == null ? query == null : champs.equals(query)){ 
+                if (champs == null ? data == null : champs.equals(data)){ 
                     valider = true;         
                 } 
             }
             if (valider == true){
-                 System.out.println("Le "+ saisie+ " au " + demande + " de " + query+ " existe");
+                 System.out.println("Le "+ table+ " au " + data + " de " + demande+ " existe");
             }else{
-                 System.out.println("Le "+ saisie+ " au " + demande + " de " + query+ " n'existe pas"); 
+                 System.out.println("Le "+ table+ " au " + data + " de " + demande+ " n'existe pas"); 
             }
         } catch (SQLException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
