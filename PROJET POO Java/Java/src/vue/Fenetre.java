@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import modele.*;
 import java.util.*;
 import java.io.*;
@@ -30,9 +31,12 @@ public class Fenetre extends JFrame implements ActionListener
     private JButton b3;
     private JButton b4;
     private JButton b5;
+    private JButton bv;
     private JComboBox box;
     private JComboBox box2;
     private JTextField jtf;
+    private ItemListener il;
+    private String don;
     
     public Fenetre(){
         setTitle("Hopital d'Albert et Yann");
@@ -45,6 +49,7 @@ public class Fenetre extends JFrame implements ActionListener
         b3=new JButton("Reporting");
         b4=new JButton("Quitter");
         //b5=new JButton("Précédent"); test pour un bouton de retour
+        bv=new JButton("Valider");
         box=new JComboBox();
         box2=new JComboBox();
         jtf=new JTextField();
@@ -88,6 +93,7 @@ public class Fenetre extends JFrame implements ActionListener
         b2.addActionListener(this);
         b3.addActionListener(this);
         b4.addActionListener(this);
+        bv.addActionListener(this);
         add(pan);
         this.setVisible(true);
     }
@@ -111,26 +117,33 @@ public class Fenetre extends JFrame implements ActionListener
             pan2.add(box2);
             pan2.add(lab3);
             pan2.add(jtf);
+            pan2.add(bv);
             pan2.add(b4);
             add(pan2);
             this.setVisible(true);
         }
-        if(e.getSource()==b2){
+        else if(e.getSource()==b2){
             pan.setVisible(false);
             pan2.setLayout(new FlowLayout());
             pan2.add(b4);
             add(pan2);
             this.setVisible(true);
         }
-        if(e.getSource()==b3){
+        else if(e.getSource()==b3){
             pan.setVisible(false);
             pan2.setLayout(new FlowLayout());
             pan2.add(b4);
             add(pan2);
             this.setVisible(true);
         }
-        if(e.getSource()==b4){
+        else if(e.getSource()==b4){
             System.exit(0);
+        }
+        else if(e.getSource()==bv){
+            don=jtf.getText();
+            System.out.println(box.getSelectedItem());
+            System.out.println(box2.getSelectedItem());
+            System.out.println(don);
         }
     }
 }
