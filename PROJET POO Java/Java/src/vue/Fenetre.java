@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import modele.*;
 import java.util.*;
 import java.io.*;
@@ -22,16 +23,26 @@ public class Fenetre extends JFrame implements ActionListener
     private JPanel pan;//fenêtre de visualisation de l'interface d'origine
     private JPanel pan2;
     private JLabel lab;//instancie la texte
+    private JLabel lab2;
+    private JLabel lab3;
     // instancie les boutons
     private JButton b1;
     private JButton b2;
     private JButton b3;
     private JButton b4;
-    private JButton b5;
+//    private JButton b5;
+    private JButton bv;
+    private JComboBox box;
+    private JComboBox box2;
+    private JTextField jtf;
+    private ItemListener il;
+    private String don;
+    private String choix1;
+    private String choix2;
     
     public Fenetre(){
         setTitle("Hopital d'Albert et Yann");
-        setSize(400,500);
+        setSize(500,600);
         pan=new JPanel();//instancier le panneau
         pan2=new JPanel();//instancier le deuxième panneau
         lab=new JLabel("Database utilisée: 'projet' ");
@@ -39,7 +50,11 @@ public class Fenetre extends JFrame implements ActionListener
         b2=new JButton("Mise à jour");
         b3=new JButton("Reporting");
         b4=new JButton("Quitter");
-        //b5=new JButton("Précédent"); test pour un bouton de retour
+//        b5=new JButton("Précédent"); test pour le bouton précédent
+        bv=new JButton("Valider");
+        box=new JComboBox();
+        box2=new JComboBox();
+        jtf=new JTextField();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
     
@@ -57,7 +72,21 @@ public class Fenetre extends JFrame implements ActionListener
         b2.setPreferredSize(new Dimension(200,50));
         b3.setPreferredSize(new Dimension(200,50));
         b4.setPreferredSize(new Dimension(100,50));
-        //b5.setPreferredSize(new Dimension(100,50));
+//        b5.setPreferredSize(new Dimension(100,50));
+        bv.setPreferredSize(new Dimension(100,50));
+        box.setPreferredSize(new Dimension(200,30));
+        box2.setPreferredSize(new Dimension(200,30));
+        box.addItem("Option 1");
+        box.addItem("Option 2");
+        box.addItem("Option 3");
+        box.addItem("Option 4");
+        box.addItem("Option 5");
+        box.addItem("Option 6");
+        box.addItem("Option 7");
+        box.addItem("Option 8");
+        box2.addItem("Numéro, Téléphone,...");
+        box2.addItem("Nom, Prénom");
+        box2.addItem("Adresse");
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
@@ -67,6 +96,8 @@ public class Fenetre extends JFrame implements ActionListener
         b2.addActionListener(this);
         b3.addActionListener(this);
         b4.addActionListener(this);
+//        b5.addActionListener(this);
+        bv.addActionListener(this);
         add(pan);
         this.setVisible(true);
     }
@@ -76,27 +107,71 @@ public class Fenetre extends JFrame implements ActionListener
     {
         if(e.getSource()==b1){
             pan.setVisible(false);
-            pan2.setLayout(new FlowLayout());
+            lab=new JLabel("Quel table voulez-vous?");
+            lab2=new JLabel("Que chercher vous?");
+            lab3=new JLabel("Saisissez l'information recherchée");
+            jtf.setPreferredSize(new Dimension(200,30));
+            FlowLayout fl2=new FlowLayout();
+            fl2.setHgap(100);
+            fl2.setVgap(20);
+            pan2.setLayout(fl2);
+            pan2.add(lab);
+            pan2.add(box);
+            pan2.add(lab2);
+            pan2.add(box2);
+            pan2.add(lab3);
+            pan2.add(jtf);
             pan2.add(b4);
+//            pan2.add(b5);
+            pan2.add(bv);
             add(pan2);
             this.setVisible(true);
         }
-        if(e.getSource()==b2){
+        else if(e.getSource()==b2){
             pan.setVisible(false);
-            pan2.setLayout(new FlowLayout());
+            FlowLayout fl2=new FlowLayout();
+            fl2.setHgap(100);
+            fl2.setVgap(20);
+            pan2.setLayout(fl2);
+            lab=new JLabel("Dans quel table voulez-vous ajoutée?");
+            lab2=new JLabel("Quel information voulez-vous ajoutée?");
+            lab3=new JLabel("Entrez l'information");
+            jtf.setPreferredSize(new Dimension(200,30));
+            pan2.add(lab);
+            pan2.add(box);
+            pan2.add(lab2);
+            pan2.add(box2);
+            pan2.add(lab3);
+            pan2.add(jtf);
             pan2.add(b4);
+            pan2.add(bv);
             add(pan2);
             this.setVisible(true);
         }
-        if(e.getSource()==b3){
+        else if(e.getSource()==b3){
             pan.setVisible(false);
-            pan2.setLayout(new FlowLayout());
+            FlowLayout fl2=new FlowLayout();
+            fl2.setHgap(100);
+            fl2.setVgap(20);
+            pan2.setLayout(fl2);
             pan2.add(b4);
             add(pan2);
             this.setVisible(true);
         }
-        if(e.getSource()==b4){
+        else if(e.getSource()==b4){
             System.exit(0);
+        }
+//        else if(e.getSource()==b5){
+//            pan.setVisible(true);
+//            pan2.setVisible(false);
+//        }
+        else if(e.getSource()==bv){
+            choix1= (String) box.getSelectedItem();
+            choix2= (String) box2.getSelectedItem();
+            don=jtf.getText();
+            System.out.println(choix1);
+            System.out.println(choix2);
+            System.out.println(don);
         }
     }
 }
