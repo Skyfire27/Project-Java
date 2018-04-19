@@ -36,7 +36,6 @@ public class Fenetre extends JFrame implements ActionListener
     private JTextField jtf, jtf2;
     private String don,don2;
     private String choix1;
-    private String choix2;
     private Recherche rech;
     
     public Fenetre(Recherche rech){
@@ -53,7 +52,6 @@ public class Fenetre extends JFrame implements ActionListener
 //        b5=new JButton("Précédent"); test pour le bouton précédent
         bv=new JButton("Valider");
         box=new JComboBox();
-        box2=new JComboBox();
         jtf=new JTextField();
         jtf2=new JTextField();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
@@ -77,7 +75,6 @@ public class Fenetre extends JFrame implements ActionListener
 //        b5.setPreferredSize(new Dimension(100,50));
         bv.setPreferredSize(new Dimension(100,50));
         box.setPreferredSize(new Dimension(200,30));
-        box2.setPreferredSize(new Dimension(200,30));
         box.addItem("chambre");
         box.addItem("docteur");
         box.addItem("employe");
@@ -86,9 +83,6 @@ public class Fenetre extends JFrame implements ActionListener
         box.addItem("malade");
         box.addItem("service");
         box.addItem("soigne");  
-        box2.addItem("Numéro, Téléphone,...");
-        box2.addItem("Nom, Prénom");
-        box2.addItem("Adresse");
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
@@ -140,11 +134,9 @@ public class Fenetre extends JFrame implements ActionListener
             lab2=new JLabel("Quel information voulez-vous ajoutée?");
             lab3=new JLabel("Entrez l'information");
             jtf.setPreferredSize(new Dimension(200,30));
-            
             pan2.add(lab);
             pan2.add(box);
             pan2.add(lab2);
-            pan2.add(box2);
             pan2.add(lab3);
             pan2.add(jtf);
             pan2.add(b4);
@@ -171,7 +163,6 @@ public class Fenetre extends JFrame implements ActionListener
 //        }
         else if(e.getSource()==bv){
             choix1= (String) box.getSelectedItem();
-            choix2= (String) box2.getSelectedItem();
             don=jtf.getText();
             don2=jtf2.getText();
             rech.existance(choix1,don,don2);
