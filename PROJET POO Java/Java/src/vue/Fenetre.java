@@ -13,7 +13,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
 import modele.*;
 import java.util.*;
 import java.io.*;
@@ -35,7 +34,6 @@ public class Fenetre extends JFrame implements ActionListener
     private JComboBox box;
     private JComboBox box2;
     private JTextField jtf, jtf2;
-    private ItemListener il;
     private String don,don2;
     private String choix1;
     private String choix2;
