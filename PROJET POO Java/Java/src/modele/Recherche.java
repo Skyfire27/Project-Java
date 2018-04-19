@@ -52,19 +52,40 @@ public class Recherche {
     public void existance(String table, String data, String demande) {
         try {
             valider = false;
-            requete = "select "+data+" from " + table;
+            requete = "select " + data + " from " + table;
             rSet = local.getStmt().executeQuery(requete);
             while (rSet.next()) {
                 String champs = rSet.getString(1);
-                if (champs == null ? demande == null : champs.equals(demande)){ 
-                    valider = true;         
-                } 
+                if (champs == null ? demande == null : champs.equals(demande)) {
+                    valider = true;
+                }
             }
-            if (valider == true){
-                 System.out.println("Le "+ table+ " au " + data + " de " + demande+ " existe");
-            }else{
-                 System.out.println("Le "+ table+ " au " + data + " de " + demande+ " n'existe pas"); 
+            if (valider == true) {
+                System.out.println("Le " + table + " au " + data + " de " + demande + " existe");
+            } else {
+                System.out.println("Le " + table + " au " + data + " de " + demande + " n'existe pas");
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void verifier(String table, String data, String demande) {
+        try {
+            requete = "select " + data + " from " + table;
+            ArrayList<String> liste = local.remplirChampsRequete(requete);
+            Iterator it = liste.iterator();
+            
+            if ("".equals(demande)) {
+                System.out.println("Affichage de toute la colonne "+data);
+                while (it.hasNext()) {
+                    System.out.println(it.next());
+                }
+            } else {
+                this.existance(table, data, demande);
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
