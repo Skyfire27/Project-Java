@@ -70,17 +70,4 @@ public class Recherche {
         }
 
     }
-     public void detail(String table, String data, String demande) {
-        try {
-            requete = "select "+data+" from " + table+" where "+ data + " = "+ " '"+demande+"'" ;
-            rSet = local.getStmt().executeQuery(requete);
-            while (rSet.next()) {   
-                 System.out.println( rSet.getString(1)+ rSet.getString(2) );
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
 }
