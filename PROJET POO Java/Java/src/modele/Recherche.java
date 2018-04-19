@@ -51,7 +51,7 @@ public class Recherche {
 
     public void existance(String table, String data, String demande) {
         try {
-
+            valider = false;
             requete = "select "+data+" from " + table;
             rSet = local.getStmt().executeQuery(requete);
             while (rSet.next()) {
