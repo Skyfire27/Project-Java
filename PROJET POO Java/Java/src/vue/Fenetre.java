@@ -24,7 +24,7 @@ public class Fenetre extends JFrame implements ActionListener
     private JPanel pan, pan2, pan3;//fenêtre de visualisation de l'interface d'origine
     private JLabel lab, lab2, lab3,lab4,lab5,lab6;//instancie la texte
     // instancie les boutons
-    private JButton b1,b2,b3,b4;
+    private JButton b1,b2,b3,b4; 
 //    private JButton b5;
     private JButton bv1,bv2,bv21,bv22,bv23,bv24,bv25,bv26,bv27,bv28;
     private JComboBox box;
