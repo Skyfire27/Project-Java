@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import modele.*;
 import java.util.*;
 import java.io.*;
+
+import org.jfree.chart.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -26,7 +28,7 @@ public class Fenetre extends JFrame implements ActionListener
     private JPanel pan, pan2, pan3;//fenêtre de visualisation de l'interface d'origine
     private JLabel lab, lab2, lab3,lab4,lab5,lab6;//instancie la texte
     // instancie les boutons
-    private JButton b1,b2,b3,b4;
+    private JButton b1,b2,b3,b4; 
 //    private JButton b5;
     private JButton bv1,bv2,bv21,bv22,bv23,bv24,bv25,bv26,bv27,bv28;
     private JComboBox box;
@@ -34,10 +36,12 @@ public class Fenetre extends JFrame implements ActionListener
     private String don,don2;
     private String choix1;
     private Recherche rech;
+    private Update maj;
     private ArrayList<String> donnée;
     
-    public Fenetre(Recherche rech){
+    public Fenetre(Recherche rech, Update maj){
         this.rech =rech;
+        this.maj=maj;
         setTitle("Hopital d'Albert et Yann");
         setSize(500,600);
         pan=new JPanel();//instancier le panneau
@@ -69,6 +73,7 @@ public class Fenetre extends JFrame implements ActionListener
         donnée=new ArrayList();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
+
     
     
     /**
@@ -105,7 +110,7 @@ public class Fenetre extends JFrame implements ActionListener
         box.addItem("infirmier");
         box.addItem("malade");
         box.addItem("service");
-        box.addItem("soigne");  
+        box.addItem("soigne"); 
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
@@ -136,7 +141,7 @@ public class Fenetre extends JFrame implements ActionListener
         if(e.getSource()==b1){
             pan.setVisible(false);
             lab=new JLabel("Quel table voulez-vous?");
-            lab2=new JLabel("Que chercher vous?");
+            lab2=new JLabel("Que chercher vous? ( * : table entière)");
             jtf.setPreferredSize(new Dimension(200,30));
             lab3=new JLabel("Saisissez l'information recherchée");
             jtf2.setPreferredSize(new Dimension(200,30));
@@ -163,8 +168,18 @@ public class Fenetre extends JFrame implements ActionListener
             fl2.setVgap(20);
             pan2.setLayout(fl2);
             lab=new JLabel("Dans quel table voulez-vous ajoutée?");
+            lab2=new JLabel("Quel information voulez-vous ajoutée?");
+            lab3=new JLabel("Entrez l'information");
+            jtf.setPreferredSize(new Dimension(200,30));
             pan2.add(lab);
             pan2.add(box);
+            pan2.add(lab2);
+            pan2.add(lab3);
+            pan2.add(jtf);
+
+            pan2.add(lab);
+            pan2.add(box);
+
             pan2.add(b4);
             pan2.add(bv2);
             add(pan2);
@@ -200,7 +215,8 @@ public class Fenetre extends JFrame implements ActionListener
             choix1= (String) box.getSelectedItem();
             don=jtf.getText();
             don2=jtf2.getText();
-            rech.existance(choix1,don, don2);
+            rech.verifier(choix1,don,don2);
+
         }
         else if(e.getSource()==bv21){
             System.out.println(jtf.getText());
@@ -449,6 +465,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan2.setVisible(false);
             add(pan3);
             this.setVisible(true);
+
         }
     }
 }

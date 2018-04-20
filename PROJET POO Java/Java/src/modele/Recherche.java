@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,28 +21,31 @@ public class Recherche {
 
     private Connexion local;
     private boolean valider;
-    private String saisie;
     private String requete;
     private ResultSet rSet;
-    private int nombre;
+
 
     public Recherche() {
         try {
             local = new Connexion("projet", "root", "");
             valider = false;
-            saisie = "";
-            nombre = 0;
+            requete = "";
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public Recherche(Connexion local) {
+        this.local = local;
+        valider = false;
+        requete = "";
     }
 
     public Recherche(String database, String username, String mdp) {
         try {
             local = new Connexion(database, username, mdp);
             valider = false;
-            saisie = "";
-            nombre = 0;
+            requete = "";
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -52,22 +54,43 @@ public class Recherche {
     public void existance(String table, String data, String demande) {
         try {
             valider = false;
-            requete = "select "+data+" from " + table;
+            requete = "select " + data + " from " + table;
             rSet = local.getStmt().executeQuery(requete);
             while (rSet.next()) {
                 String champs = rSet.getString(1);
-                if (champs == null ? demande == null : champs.equals(demande)){ 
-                    valider = true;         
-                } 
+                if (champs == null ? demande == null : champs.equals(demande)) {
+                    valider = true;
+                }
             }
-            if (valider == true){
-                 System.out.println("Le "+ table+ " au " + data + " de " + demande+ " existe");
-            }else{
-                 System.out.println("Le "+ table+ " au " + data + " de " + demande+ " n'existe pas"); 
+            if (valider == true) {
+                System.out.println("Le " + table + " au " + data + " de " + demande + " existe");
+            } else {
+                System.out.println("Le " + table + " au " + data + " de " + demande + " n'existe pas");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
+
+    public void verifier(String table, String data, String demande) {
+        try {
+            requete = "select " + data + " from " + table;
+            ArrayList<String> liste = local.remplirChampsRequete(requete);
+            Iterator it = liste.iterator();
+            if ("".equals(demande)) {
+                System.out.println("Affichage de toute la colonne "+data);
+                while (it.hasNext()) {
+                    System.out.println(it.next());
+                }
+            } else {
+                this.existance(table, data, demande);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
 }
