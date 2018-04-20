@@ -35,7 +35,5 @@ public class TestHop {
         maj = new Update(local);
         fen = new Fenetre(rech,maj);
         fen.affiche();
-     
-       
     }
 }

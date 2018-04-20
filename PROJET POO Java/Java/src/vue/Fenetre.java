@@ -167,18 +167,8 @@ public class Fenetre extends JFrame implements ActionListener
             fl2.setVgap(20);
             pan2.setLayout(fl2);
             lab=new JLabel("Dans quel table voulez-vous ajoutée?");
-            lab2=new JLabel("Quel information voulez-vous ajoutée?");
-            lab3=new JLabel("Entrez l'information");
-            jtf.setPreferredSize(new Dimension(200,30));
             pan2.add(lab);
             pan2.add(box);
-            pan2.add(lab2);
-            pan2.add(lab3);
-            pan2.add(jtf);
-
-            pan2.add(lab);
-            pan2.add(box);
-
             pan2.add(b4);
             pan2.add(bv2);
             add(pan2);
