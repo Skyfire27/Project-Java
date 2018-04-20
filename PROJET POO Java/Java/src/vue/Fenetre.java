@@ -30,7 +30,7 @@ public class Fenetre extends JFrame implements ActionListener
     // instancie les boutons
     private JButton b1,b2,b3,b4; 
 //    private JButton b5;
-    private JButton bv1,bv2,bv21,bv22,bv23,bv24,bv25,bv26,bv27,bv28;
+    private JButton bv1,bv2,bv21,bv22,bv23,bv24,bv25,bv26,bv27,bv28,bv3;
     private JComboBox box;
     private JTextField jtf, jtf2, jtf3, jtf4, jtf5, jtf6;
     private String don,don2;
@@ -55,6 +55,7 @@ public class Fenetre extends JFrame implements ActionListener
 //        b5=new JButton("Précédent"); test bouton précédent
         bv1=new JButton("Valider");
         bv2=new JButton("Valider");
+        bv3=new JButton("Valider");
         bv21=new JButton("Valider");
         bv22=new JButton("Valider");
         bv23=new JButton("Valider");
@@ -94,6 +95,7 @@ public class Fenetre extends JFrame implements ActionListener
 //        b5.setPreferredSize(new Dimension(100,50));
         bv1.setPreferredSize(new Dimension(100,50));
         bv2.setPreferredSize(new Dimension(100,50));
+        bv3.setPreferredSize(new Dimension(100,50));
         bv21.setPreferredSize(new Dimension(100,50));
         bv22.setPreferredSize(new Dimension(100,50));
         bv23.setPreferredSize(new Dimension(100,50));
@@ -123,6 +125,7 @@ public class Fenetre extends JFrame implements ActionListener
 //        b5.addActionListener(this);
         bv1.addActionListener(this);
         bv2.addActionListener(this);
+        bv3.addActionListener(this);
         bv21.addActionListener(this);
         bv22.addActionListener(this);
         bv23.addActionListener(this);
@@ -180,18 +183,11 @@ public class Fenetre extends JFrame implements ActionListener
             FlowLayout fl2=new FlowLayout();
             fl2.setHgap(100);
             fl2.setVgap(20);
+            pan2.setLayout(fl2);
             lab=new JLabel("Dans quel table voulez-vous ajoutée?");
             pan2.add(lab);
             pan2.add(box);
-            DefaultPieDataset dataset =new DefaultPieDataset();
-            dataset.setValue("Category 1", 43.2);
-            dataset.setValue("Category 2", 27.9);
-            dataset.setValue("Category 3", 79.5);
-            JFreeChart chart = ChartFactory.createPieChart("Sample Pie Chart", dataset, true, true, false);
-            ChartFrame frame = new ChartFrame("First", chart);
-            frame.pack();
-            frame.setVisible(true);
-            pan2.setLayout(fl2);
+            pan2.add(bv3);            
             pan2.add(b4);
             add(pan2);
             this.setVisible(true);
@@ -458,6 +454,16 @@ public class Fenetre extends JFrame implements ActionListener
             add(pan3);
             this.setVisible(true);
 
+        }
+        else if (e.getSource()==bv3){
+            DefaultPieDataset dataset =new DefaultPieDataset();
+            dataset.setValue("Category 1", 43.2);
+            dataset.setValue("Category 2", 27.9);
+            dataset.setValue("Category 3", 79.5);
+            JFreeChart chart = ChartFactory.createPieChart("Sample Pie Chart", dataset, true, true, false);
+            ChartFrame frame = new ChartFrame("First", chart);
+            frame.pack();
+            frame.setVisible(true);
         }
     }
 }
