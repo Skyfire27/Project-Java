@@ -16,13 +16,11 @@ import java.awt.event.ActionListener;
 import modele.*;
 import java.util.*;
 import java.io.*;
-<<<<<<< HEAD
+
 import org.jfree.chart.*;
-=======
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
->>>>>>> Fenreport
 import org.jfree.data.general.DefaultPieDataset;
 
 public class Fenetre extends JFrame implements ActionListener
@@ -38,11 +36,8 @@ public class Fenetre extends JFrame implements ActionListener
     private String don,don2;
     private String choix1;
     private Recherche rech;
-<<<<<<< HEAD
     private Update maj;
-=======
     private ArrayList<String> donnée;
->>>>>>> Fenreport
     
     public Fenetre(Recherche rech, Update maj){
         this.rech =rech;
