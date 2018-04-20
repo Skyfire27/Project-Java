@@ -180,6 +180,9 @@ public class Fenetre extends JFrame implements ActionListener
             FlowLayout fl2=new FlowLayout();
             fl2.setHgap(100);
             fl2.setVgap(20);
+            lab=new JLabel("Dans quel table voulez-vous ajoutée?");
+            pan2.add(lab);
+            pan2.add(box);
             DefaultPieDataset dataset =new DefaultPieDataset();
             dataset.setValue("Category 1", 43.2);
             dataset.setValue("Category 2", 27.9);
@@ -206,7 +209,6 @@ public class Fenetre extends JFrame implements ActionListener
             don=jtf.getText();
             don2=jtf2.getText();
             rech.verifier(choix1,don,don2);
-
         }
         else if(e.getSource()==bv21){
             System.out.println(jtf.getText());
