@@ -70,6 +70,7 @@ public class Recherche {
         }
 
     }
+<<<<<<< HEAD
      public void detail(String table, String data, String demande) {
         try {
             requete = "select "+data+" from " + table+" where "+ data + " = "+ " '"+demande+"'" ;
@@ -104,4 +105,6 @@ public class Recherche {
 
     }
 
+=======
+>>>>>>> Fenreport
 }
