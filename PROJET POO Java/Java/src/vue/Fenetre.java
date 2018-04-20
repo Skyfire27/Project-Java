@@ -203,10 +203,10 @@ public class Fenetre extends JFrame implements ActionListener
             rech.existance(choix1,don, don2);
         }
         else if(e.getSource()==bv21){
-//            System.out.println(jtf.getText());
-//            System.out.println(jtf2.getText());
-//            System.out.println(jtf3.getText());
-//            System.out.println(jtf4.getText());
+            System.out.println(jtf.getText());
+            System.out.println(jtf2.getText());
+            System.out.println(jtf3.getText());
+            System.out.println(jtf4.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -220,10 +220,6 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            Iterator it = donnée.iterator();
-            while (it.hasNext()) {
-                System.out.println(it.next());
-            }
             this.setVisible(true);
         }
         else if(e.getSource()==bv22){
