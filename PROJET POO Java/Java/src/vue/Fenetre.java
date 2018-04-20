@@ -214,7 +214,7 @@ public class Fenetre extends JFrame implements ActionListener
             choix1= (String) box.getSelectedItem();
             don=jtf.getText();
             don2=jtf2.getText();
-            rech.verifier(choix1,don,don2);
+            System.out.println(rech.verifier(choix1,don,don2));
 
         }
         else if(e.getSource()==bv21){

@@ -70,24 +70,18 @@ public class Recherche {
         return "Le " + table + " au " + data + " de " + demande + " n'existe pas";
     }
 
-    public void verifier(String table, String data, String demande) {
-        try {
-            requete = "select " + data + " from " + table;
-            ArrayList<String> liste = local.remplirChampsRequete(requete);
-            Iterator it = liste.iterator();
-            if ("".equals(demande)) {
-                System.out.println("Affichage de toute la colonne " + data);
-                while (it.hasNext()) {
-                    System.out.println(it.next());
-                }
-            } else {
-                this.existance(table, data, demande);
+     public String verifier(String table, String data, String demande) {        
+            if (("".equals(demande))&&("".equals(data))){
+                requete = "select * from " + table;
+            } else if ("".equals(demande)){
+                requete = "select "+data+" from " + table;
+            } else if ("".equals(data)){
+                requete = "select * from " + table;
+            } else
+            {
+                requete = "select " + data + " from " + table+ " where "+data+" = "+"'"+demande+"'";
             }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+            return requete;
     }
 
 }
