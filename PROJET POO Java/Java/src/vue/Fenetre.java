@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import modele.*;
 import java.util.*;
 import java.io.*;
+import org.jfree.chart.*;
+import org.jfree.data.general.DefaultPieDataset;
 
 public class Fenetre extends JFrame implements ActionListener
 {
