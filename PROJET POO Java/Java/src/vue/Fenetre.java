@@ -208,10 +208,6 @@ public class Fenetre extends JFrame implements ActionListener
 
         }
         else if(e.getSource()==bv21){
-//            System.out.println(jtf.getText());
-//            System.out.println(jtf2.getText());
-//            System.out.println(jtf3.getText());
-//            System.out.println(jtf4.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -229,8 +225,6 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv22){
-            System.out.println(jtf.getText());
-            System.out.println(jtf2.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             pan3.add(lab);
@@ -242,11 +236,6 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv23){
-            System.out.println(jtf.getText());
-            System.out.println(jtf2.getText());
-            System.out.println(jtf3.getText());
-            System.out.println(jtf4.getText());
-            System.out.println(jtf5.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -267,10 +256,6 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv24){
-            System.out.println(jtf.getText());
-            System.out.println(jtf2.getText());
-            System.out.println(jtf3.getText());
-            System.out.println(jtf4.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -288,10 +273,6 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv25){
-            System.out.println(jtf.getText());
-            System.out.println(jtf2.getText());
-            System.out.println(jtf3.getText());
-            System.out.println(jtf4.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
