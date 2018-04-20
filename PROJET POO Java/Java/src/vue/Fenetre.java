@@ -16,7 +16,13 @@ import java.awt.event.ActionListener;
 import modele.*;
 import java.util.*;
 import java.io.*;
+<<<<<<< HEAD
 import org.jfree.chart.*;
+=======
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+>>>>>>> Fenreport
 import org.jfree.data.general.DefaultPieDataset;
 
 public class Fenetre extends JFrame implements ActionListener
@@ -32,7 +38,11 @@ public class Fenetre extends JFrame implements ActionListener
     private String don,don2;
     private String choix1;
     private Recherche rech;
+<<<<<<< HEAD
     private Update maj;
+=======
+    private ArrayList<String> donnée;
+>>>>>>> Fenreport
     
     public Fenetre(Recherche rech, Update maj){
         this.rech =rech;
@@ -65,6 +75,7 @@ public class Fenetre extends JFrame implements ActionListener
         jtf4=new JTextField();
         jtf5=new JTextField();
         jtf6=new JTextField();
+        donnée=new ArrayList();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
 
@@ -184,6 +195,14 @@ public class Fenetre extends JFrame implements ActionListener
             FlowLayout fl2=new FlowLayout();
             fl2.setHgap(100);
             fl2.setVgap(20);
+            DefaultPieDataset dataset =new DefaultPieDataset();
+            dataset.setValue("Category 1", 43.2);
+            dataset.setValue("Category 2", 27.9);
+            dataset.setValue("Category 3", 79.5);
+            JFreeChart chart = ChartFactory.createPieChart("Sample Pie Chart", dataset, true, true, false);
+            ChartFrame frame = new ChartFrame("First", chart);
+            frame.pack();
+            frame.setVisible(true);
             pan2.setLayout(fl2);
             pan2.add(b4);
             add(pan2);
@@ -205,19 +224,27 @@ public class Fenetre extends JFrame implements ActionListener
 
         }
         else if(e.getSource()==bv21){
-            System.out.println(jtf.getText());
-            System.out.println(jtf2.getText());
-            System.out.println(jtf3.getText());
-            System.out.println(jtf4.getText());
+//            System.out.println(jtf.getText());
+//            System.out.println(jtf2.getText());
+//            System.out.println(jtf3.getText());
+//            System.out.println(jtf4.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
             lab4=new JLabel(jtf4.getText());
             pan3.add(lab);
+            donnée.add(jtf.getText());
             pan3.add(lab2);
+            donnée.add(jtf2.getText());
             pan3.add(lab3);
+            donnée.add(jtf3.getText());
             pan3.add(lab4);
+            donnée.add(jtf4.getText());
             add(pan3);
+            Iterator it = donnée.iterator();
+            while (it.hasNext()) {
+                System.out.println(it.next());
+            }
             this.setVisible(true);
         }
         else if(e.getSource()==bv22){
