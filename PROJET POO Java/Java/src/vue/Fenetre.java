@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import modele.*;
 import java.util.*;
 import java.io.*;
+import org.jfree.chart.*;
+import org.jfree.data.general.DefaultPieDataset;
 
 public class Fenetre extends JFrame implements ActionListener
 {
@@ -30,9 +32,11 @@ public class Fenetre extends JFrame implements ActionListener
     private String don,don2;
     private String choix1;
     private Recherche rech;
+    private Update maj;
     
-    public Fenetre(Recherche rech){
+    public Fenetre(Recherche rech, Update maj){
         this.rech =rech;
+        this.maj=maj;
         setTitle("Hopital d'Albert et Yann");
         setSize(500,600);
         pan=new JPanel();//instancier le panneau
@@ -63,6 +67,7 @@ public class Fenetre extends JFrame implements ActionListener
         jtf6=new JTextField();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
+
     
     
     /**

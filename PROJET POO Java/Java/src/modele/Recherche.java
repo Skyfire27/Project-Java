@@ -34,6 +34,12 @@ public class Recherche {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public Recherche(Connexion local) {
+        this.local = local;
+        valider = false;
+        requete = "";
+    }
 
     public Recherche(String database, String username, String mdp) {
         try {
