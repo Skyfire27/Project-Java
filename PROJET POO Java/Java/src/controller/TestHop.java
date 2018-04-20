@@ -27,7 +27,7 @@ public class TestHop {
     private static Fenetre fen;
 
     public static void main(String args[]) {
-<<<<<<< HEAD
+
 
        
         try {
@@ -39,8 +39,6 @@ public class TestHop {
         maj = new Update(local);
         fen = new Fenetre(rech,maj);
      
-=======
->>>>>>> 27711917f1f7fc4aeb3d0384ccd26855ebf39123
         DefaultPieDataset dataset =new DefaultPieDataset();
         dataset.setValue("Category 1", 43.2);
         dataset.setValue("Category 2", 27.9);
