@@ -24,7 +24,6 @@ public class Recherche {
     private String requete;
     private ResultSet rSet;
 
-
     public Recherche() {
         try {
             local = new Connexion("projet", "root", "");
@@ -34,7 +33,7 @@ public class Recherche {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public Recherche(Connexion local) {
         this.local = local;
         valider = false;
@@ -51,7 +50,7 @@ public class Recherche {
         }
     }
 
-    public void existance(String table, String data, String demande) {
+    public String existance(String table, String data, String demande) {
         try {
             valider = false;
             requete = "select " + data + " from " + table;
@@ -62,15 +61,13 @@ public class Recherche {
                     valider = true;
                 }
             }
-            if (valider == true) {
-                System.out.println("Le " + table + " au " + data + " de " + demande + " existe");
-            } else {
-                System.out.println("Le " + table + " au " + data + " de " + demande + " n'existe pas");
-            }
         } catch (SQLException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        if (valider == true) {
+            return "Le " + table + " au " + data + " de " + demande + " existe";
+        }
+        return "Le " + table + " au " + data + " de " + demande + " n'existe pas";
     }
 
     public void verifier(String table, String data, String demande) {
@@ -79,7 +76,7 @@ public class Recherche {
             ArrayList<String> liste = local.remplirChampsRequete(requete);
             Iterator it = liste.iterator();
             if ("".equals(demande)) {
-                System.out.println("Affichage de toute la colonne "+data);
+                System.out.println("Affichage de toute la colonne " + data);
                 while (it.hasNext()) {
                     System.out.println(it.next());
                 }

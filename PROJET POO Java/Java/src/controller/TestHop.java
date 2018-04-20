@@ -48,7 +48,7 @@ public class TestHop {
         chart = ChartFactory.createPieChart("Sample Pie Chrt", dataset, true, true, false);
         ChartFrame frame = new ChartFrame("First", chart);
         frame.pack();
-//        fen.affiche();
+        fen.affiche();
         frame.setVisible(true);
     }
 }
