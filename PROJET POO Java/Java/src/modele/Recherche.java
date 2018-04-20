@@ -22,17 +22,15 @@ public class Recherche {
 
     private Connexion local;
     private boolean valider;
-    private String saisie;
     private String requete;
     private ResultSet rSet;
-    private int nombre;
+
 
     public Recherche() {
         try {
             local = new Connexion("projet", "root", "");
             valider = false;
-            saisie = "";
-            nombre = 0;
+            requete = "";
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -42,8 +40,7 @@ public class Recherche {
         try {
             local = new Connexion(database, username, mdp);
             valider = false;
-            saisie = "";
-            nombre = 0;
+            requete = "";
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -70,26 +67,12 @@ public class Recherche {
         }
 
     }
-<<<<<<< HEAD
-     public void detail(String table, String data, String demande) {
-        try {
-            requete = "select "+data+" from " + table+" where "+ data + " = "+ " '"+demande+"'" ;
-            rSet = local.getStmt().executeQuery(requete);
-            while (rSet.next()) {   
-                 System.out.println( rSet.getString(1)+ rSet.getString(2) );
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
 
     public void verifier(String table, String data, String demande) {
         try {
             requete = "select " + data + " from " + table;
             ArrayList<String> liste = local.remplirChampsRequete(requete);
             Iterator it = liste.iterator();
-            
             if ("".equals(demande)) {
                 System.out.println("Affichage de toute la colonne "+data);
                 while (it.hasNext()) {
@@ -105,6 +88,4 @@ public class Recherche {
 
     }
 
-=======
->>>>>>> Fenreport
 }

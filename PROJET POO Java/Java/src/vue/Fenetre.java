@@ -84,11 +84,7 @@ public class Fenetre extends JFrame implements ActionListener
         box.addItem("infirmier");
         box.addItem("malade");
         box.addItem("service");
-<<<<<<< HEAD
         box.addItem("soigne"); 
-=======
-        box.addItem("soigne");  
->>>>>>> Fenreport
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
@@ -111,7 +107,7 @@ public class Fenetre extends JFrame implements ActionListener
         if(e.getSource()==b1){
             pan.setVisible(false);
             lab=new JLabel("Quel table voulez-vous?");
-            lab2=new JLabel("Que chercher vous?");
+            lab2=new JLabel("Que chercher vous? ( * : table entière)");
             jtf.setPreferredSize(new Dimension(200,30));
             lab3=new JLabel("Saisissez l'information recherchée");
             jtf2.setPreferredSize(new Dimension(200,30));
@@ -138,7 +134,6 @@ public class Fenetre extends JFrame implements ActionListener
             fl2.setVgap(20);
             pan2.setLayout(fl2);
             lab=new JLabel("Dans quel table voulez-vous ajoutée?");
-<<<<<<< HEAD
             lab2=new JLabel("Quel information voulez-vous ajoutée?");
             lab3=new JLabel("Entrez l'information");
             jtf.setPreferredSize(new Dimension(200,30));
@@ -147,10 +142,10 @@ public class Fenetre extends JFrame implements ActionListener
             pan2.add(lab2);
             pan2.add(lab3);
             pan2.add(jtf);
-=======
+
             pan2.add(lab);
             pan2.add(box);
->>>>>>> Fenreport
+
             pan2.add(b4);
             pan2.add(bv2);
             add(pan2);
@@ -177,16 +172,14 @@ public class Fenetre extends JFrame implements ActionListener
             choix1= (String) box.getSelectedItem();
             don=jtf.getText();
             don2=jtf2.getText();
-<<<<<<< HEAD
             rech.verifier(choix1,don,don2);
-=======
-            rech.existance(choix1,don, don2);
+
         }
         else if(e.getSource()==bv2){
             pan2.setVisible(false);
             add(pan3);
             this.setVisible(true);
->>>>>>> Fenreport
+
         }
     }
 }
