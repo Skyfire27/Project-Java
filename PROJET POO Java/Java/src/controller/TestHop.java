@@ -11,10 +11,6 @@ import java.util.logging.Logger;
 import modele.Recherche;
 import modele.Update;
 import vue.Fenetre;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -38,17 +34,8 @@ public class TestHop {
         rech = new Recherche(local);
         maj = new Update(local);
         fen = new Fenetre(rech,maj);
-     
-        DefaultPieDataset dataset =new DefaultPieDataset();
-        dataset.setValue("Category 1", 43.2);
-        dataset.setValue("Category 2", 27.9);
-        dataset.setValue("Category 3", 79.5);
-        
-        JFreeChart chart;
-        chart = ChartFactory.createPieChart("Sample Pie Chrt", dataset, true, true, false);
-        ChartFrame frame = new ChartFrame("First", chart);
-        frame.pack();
         fen.affiche();
-        frame.setVisible(true);
+     
+       
     }
 }
