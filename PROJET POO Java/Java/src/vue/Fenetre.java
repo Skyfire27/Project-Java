@@ -208,7 +208,6 @@ public class Fenetre extends JFrame implements ActionListener
             choix1= (String) box.getSelectedItem();
             don=jtf.getText();
             don2=jtf2.getText();
-<<<<<<< HEAD
             rech.verifier(choix1,don,don2);
         }
         else if(e.getSource()==bv21){
@@ -216,12 +215,10 @@ public class Fenetre extends JFrame implements ActionListener
             System.out.println(jtf2.getText());
             System.out.println(jtf3.getText());
             System.out.println(jtf4.getText());
-=======
             System.out.println(rech.verifier(choix1,don,don2));
 
         }
         else if(e.getSource()==bv21){
->>>>>>> javasql
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -235,10 +232,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-<<<<<<< HEAD
-=======
             maj.modifier(donnée);
->>>>>>> javasql
             this.setVisible(true);
         }
         else if(e.getSource()==bv22){
