@@ -31,7 +31,7 @@ public class Fenetre extends JFrame implements ActionListener
     private JButton b1,b2,b3,b4; 
 //    private JButton b5;
     private JButton bv1,bv2,bv21,bv22,bv23,bv24,bv25,bv26,bv27,bv28,bv3;
-    private JComboBox box;
+    private JComboBox box,box2;
     private JTextField jtf, jtf2, jtf3, jtf4, jtf5, jtf6;
     private String don,don2;
     private String choix1;
@@ -65,6 +65,7 @@ public class Fenetre extends JFrame implements ActionListener
         bv27=new JButton("Valider");
         bv28=new JButton("Valider");
         box=new JComboBox();
+        box2=new JComboBox();
         jtf=new JTextField();
         jtf2=new JTextField();
         jtf3=new JTextField();
@@ -87,7 +88,7 @@ public class Fenetre extends JFrame implements ActionListener
         fl.setHgap(100);
         fl.setVgap(50);
         pan.setLayout(fl);//mise en forme de bouton à la suite
-        //
+        //initialisation des bouton, panneau et box
         b1.setPreferredSize(new Dimension(200,50));
         b2.setPreferredSize(new Dimension(200,50));
         b3.setPreferredSize(new Dimension(200,50));
@@ -105,6 +106,7 @@ public class Fenetre extends JFrame implements ActionListener
         bv27.setPreferredSize(new Dimension(100,50));
         bv28.setPreferredSize(new Dimension(100,50));
         box.setPreferredSize(new Dimension(200,30));
+        box2.setPreferredSize(new Dimension(200,30));
         box.addItem("chambre");
         box.addItem("docteur");
         box.addItem("employe");
@@ -112,7 +114,10 @@ public class Fenetre extends JFrame implements ActionListener
         box.addItem("infirmier");
         box.addItem("malade");
         box.addItem("service");
-        box.addItem("soigne"); 
+        box.addItem("soigne");
+        box2.addItem("hospitalisation");
+        box2.addItem("docteur");
+        box2.addItem("soigne");
         pan.add(lab);
         pan.add(b1);
         pan.add(b2);
@@ -186,9 +191,9 @@ public class Fenetre extends JFrame implements ActionListener
             pan2.setLayout(fl2);
             lab=new JLabel("Dans quel table voulez-vous ajoutée?");
             pan2.add(lab);
-            pan2.add(box);
-            pan2.add(bv3);            
+            pan2.add(box2);           
             pan2.add(b4);
+            pan2.add(bv3); 
             add(pan2);
             this.setVisible(true);
         }
@@ -456,14 +461,40 @@ public class Fenetre extends JFrame implements ActionListener
 
         }
         else if (e.getSource()==bv3){
-            DefaultPieDataset dataset =new DefaultPieDataset();
-            dataset.setValue("Category 1", 43.2);
-            dataset.setValue("Category 2", 27.9);
-            dataset.setValue("Category 3", 79.5);
-            JFreeChart chart = ChartFactory.createPieChart("Sample Pie Chart", dataset, true, true, false);
-            ChartFrame frame = new ChartFrame("First", chart);
-            frame.pack();
-            frame.setVisible(true);
+            if (box2.getSelectedItem()=="hospitalisation"){
+                DefaultPieDataset dataset =new DefaultPieDataset();
+                dataset.setValue("REA", 43.2);
+                dataset.setValue("CHG", 27.9);
+                dataset.setValue("CAR", 79.5);
+                double tot=180-43.2-27.9-79.5;
+                dataset.setValue("Autres services", tot);
+                JFreeChart chart = ChartFactory.createPieChart("Nombre de malade par service", dataset, true, true, false);
+                ChartFrame frame = new ChartFrame("Hospitalisation", chart);
+                frame.pack();
+                frame.setVisible(true);
+            }
+            else if (box2.getSelectedItem()=="docteur"){
+                DefaultPieDataset dataset =new DefaultPieDataset();
+                dataset.setValue("Pneumologue", 43.2);
+                dataset.setValue("Traumatologue", 27.9);
+                dataset.setValue("Cardiologue", 79.5);
+                dataset.setValue("Orthopediste", 79.5);
+                dataset.setValue("Radiologue", 79.5);
+                dataset.setValue("Anesthesiste", 79.5);
+                JFreeChart chart = ChartFactory.createPieChart("Nombre de docteur par service", dataset, true, true, false);
+                ChartFrame frame = new ChartFrame("Docteur", chart);
+                frame.pack();
+                frame.setVisible(true);
+            }
+            else if (box2.getSelectedItem()=="soigne"){
+                DefaultPieDataset dataset =new DefaultPieDataset();
+                dataset.setValue("Patient soigné", 43.2);
+                dataset.setValue("Patient malade", 56.8);
+                JFreeChart chart = ChartFactory.createPieChart("Nombre de patient malade et soigné", dataset, true, true, false);
+                ChartFrame frame = new ChartFrame("Patient", chart);
+                frame.pack();
+                frame.setVisible(true);
+            }
         }
     }
 }
