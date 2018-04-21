@@ -15,9 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modele.*;
 import java.util.*;
-import java.io.*;
-
-import org.jfree.chart.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -232,7 +229,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.executerRequete(maj.ajouter(donnée));
             this.setVisible(true);
         }
         else if(e.getSource()==bv22){
@@ -243,7 +240,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab2);
             donnée.add(jtf2.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv23){
@@ -263,7 +260,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab5);
             donnée.add(jtf5.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv24){
@@ -280,7 +277,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv25){
@@ -297,7 +294,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv26){
@@ -326,7 +323,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab6);
             donnée.add(jtf6.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv27){
@@ -347,7 +344,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv28){
@@ -361,7 +358,7 @@ public class Fenetre extends JFrame implements ActionListener
             donnée.add(jtf2.getText());
             add(pan3);
             donnée.add(jtf3.getText());
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv2){

@@ -97,42 +97,7 @@ public class Connexion {
         }
     }
      */
-    /**
-     * Accesseur de la variable stmt
-     * @return stmt variable de type Statement
-     */
-    public Statement getStmt() {
-        return stmt;
-    }
-    
-    /**
-     * Accesseur de la variable rset
-     * @return rset variable de type ResultSet
-     */
-    public ResultSet getRset() {
-        return rset;
-    }
-
-    /**
-     * Accesseur de la variable rsetMeta
-     * @return rsetMeta variable de type ResultSetMetaData
-     */
-    public ResultSetMetaData getRsetM() {
-        return rsetMeta;
-    }
-
-    public void setStmt(Statement stmt) {
-        this.stmt = stmt;
-    }
-
-    public void setRset(ResultSet rset) {
-        this.rset = rset;
-    }
-
-    public void setRsetM(ResultSetMetaData rsetMeta) {
-        this.rsetMeta = rsetMeta;
-    }
-
+  
     /**
      * Méthode qui ajoute la table en parametre dans son ArrayList
      *
