@@ -97,7 +97,8 @@ public class Connexion {
         }
     }
      */
-  
+    
+    public Statement getStmt(){return stmt;}
     /**
      * Méthode qui ajoute la table en parametre dans son ArrayList
      *

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modele.Recherche;
+import modele.Reporting;
 import modele.Update;
 import vue.Fenetre;
 
@@ -21,11 +22,9 @@ public class TestHop {
     private static Recherche rech;
     private static Update maj;
     private static Fenetre fen;
+    private static Reporting rep;
 
     public static void main(String args[]) {
-
-
-       
         try {
             local = new Connexion("projet","root","");
         } catch (SQLException | ClassNotFoundException ex) {
@@ -33,7 +32,8 @@ public class TestHop {
         }
         rech = new Recherche(local);
         maj = new Update(local);
-        fen = new Fenetre(rech,maj);
+        rep = new Reporting(local);
+        fen = new Fenetre(rech,maj,rep);
         fen.affiche();
     }
 }

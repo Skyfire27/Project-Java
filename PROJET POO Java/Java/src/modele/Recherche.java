@@ -7,6 +7,7 @@ package modele;
 
 import controller.Connexion;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +19,7 @@ public class Recherche {
 
     private Connexion local;
     private String requete;
+    private ArrayList<String> liste;
 
 
     public Recherche() {
@@ -41,6 +43,21 @@ public class Recherche {
     public Recherche(Connexion local) {
         this.local = local;
         requete = "";
+    }
+    
+    public void setListe(ArrayList<String> liste) {
+        this.liste = liste;
+    }
+    
+    public ArrayList<String> executerRequete(String requete) {
+        try {
+            liste = local.remplirChampsRequete(requete);
+            this.setListe(liste);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
     }
     
     public String verifier(String table, String data, String demande) {        
