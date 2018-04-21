@@ -8,6 +8,7 @@ package modele;
 import controller.Connexion;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,6 +22,7 @@ public class Update {
     private boolean valider;
     private String requeteMaj;
     private ResultSet rSet;
+    private ArrayList<String> donnee;
     
     
     public Update(){
@@ -39,8 +41,10 @@ public class Update {
         requeteMaj = "";
     }
     
-    public void modifier(String requeteMaj){
+    public void modifier(ArrayList<String> donnee){
         try {
+            
+            
             local.executeUpdate(requeteMaj);
         } catch (SQLException ex) {
             Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);

@@ -34,8 +34,11 @@ public class TestHop {
         rech = new Recherche(local);
         maj = new Update(local);
         fen = new Fenetre(rech,maj);
+<<<<<<< HEAD
      
         
+=======
+>>>>>>> javasql
         fen.affiche();
     }
 }
