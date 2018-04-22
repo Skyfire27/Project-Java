@@ -22,7 +22,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 public class Fenetre extends JFrame implements ActionListener
 {
-    private JPanel pan, pan2, pan3, pan4;//fenêtre de visualisation de l'interface d'origine
+    private JPanel pan, pan2, pan3;//fenêtre de visualisation de l'interface d'origine
     private JLabel lab, lab2, lab3,lab4,lab5,lab6;//instancie la texte
     // créer les boutons
     private JButton b1,b2,b3,b4,b5; 
@@ -54,7 +54,6 @@ public class Fenetre extends JFrame implements ActionListener
         pan=new JPanel();
         pan2=new JPanel();
         pan3=new JPanel();
-        pan4=new JPanel();
         lab=new JLabel("Database utilisée: 'projet' ");
         //instancier les boutons
         b1=new JButton("Recherche d'information");
