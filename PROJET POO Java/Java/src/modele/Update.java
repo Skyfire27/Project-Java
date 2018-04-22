@@ -64,7 +64,7 @@ public class Update {
             switch (donnee.get(0)) {
                 case "chambre":
                     //requete SQL qui permet de modifier la table
-                    requeteMaj = "UPDATE " + donnee.get(0) + " SET no_chambre = '" + donnee.get(2) + "', surveillant = '" + donnee.get(3) + "', nb_lits = '" + donnee.get(4) +"' WHERE code_service = '" + donnee.get(1) + "'";
+                    requeteMaj = "UPDATE " + donnee.get(0) + " SET code_service = '" + donnee.get(1) + "', surveillant = '" + donnee.get(3) + "', nb_lits = '" + donnee.get(4) +"' WHERE no_chambre = '" + donnee.get(2) + "'";
                     break;
                 case "docteur":
                     requeteMaj = "UPDATE " + donnee.get(0) + " SET specialite = '" + donnee.get(2) + "' WHERE numero = '" + donnee.get(1) + "'";
@@ -85,7 +85,7 @@ public class Update {
                     requeteMaj = "UPDATE " + donnee.get(0) + " SET nom = '" + donnee.get(2) + "', batiment = '" + donnee.get(3) + "', directeur = '" + donnee.get(4) + "' WHERE code = '" + donnee.get(1) + "'";
                     break;
                 case "soigne":
-                    requeteMaj = "UPDATE " + donnee.get(0) + " SET no_malade = '" + donnee.get(2) + "' WHERE no_docteur = '" + donnee.get(1) + "'";
+                    requeteMaj = "UPDATE " + donnee.get(0) + " SET no_docteur = '" + donnee.get(1) + "' WHERE no_malade = '" + donnee.get(2) + "'";
                     break;
                 default:
                     break;
@@ -104,7 +104,7 @@ public class Update {
             switch (donnee.get(0)) {
                 case "chambre":
                     //requete SQL qui permet de supprimer une ligne de la table (prend le premier element de la table en referance)
-                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE code_service = '" + donnee.get(1) + "'";
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE no_chambre = '" + donnee.get(2) + "'";
                     break;
                 case "docteur":
                     requeteMaj = "DELETE from " + donnee.get(0) + " WHERE numero = '" + donnee.get(1) + "'";
@@ -125,7 +125,7 @@ public class Update {
                     requeteMaj = "DELETE from " + donnee.get(0) + " WHERE code = '" + donnee.get(1) + "'";
                     break;
                 case "soigne":
-                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE no_malade = '" + donnee.get(1) + "'";
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE no_malade = '" + donnee.get(2) + "'";
                     break;
                 default:
                     break;
