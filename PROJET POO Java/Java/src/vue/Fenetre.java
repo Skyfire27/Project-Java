@@ -55,14 +55,14 @@ public class Fenetre extends JFrame implements ActionListener
         bv1=new JButton("Valider");
         bv2=new JButton("Valider");
         bv3=new JButton("Valider");
-        bv21=new JButton("Valider");
-        bv22=new JButton("Valider");
-        bv23=new JButton("Valider");
-        bv24=new JButton("Valider");
-        bv25=new JButton("Valider");
-        bv26=new JButton("Valider");
-        bv27=new JButton("Valider");
-        bv28=new JButton("Valider");
+        bv21=new JButton("Ajouter");
+        bv22=new JButton("Ajouter");
+        bv23=new JButton("Ajouter");
+        bv24=new JButton("Ajouter");
+        bv25=new JButton("Ajouter");
+        bv26=new JButton("Ajouter");
+        bv27=new JButton("Ajouter");
+        bv28=new JButton("Ajouter");
         box=new JComboBox();
         box2=new JComboBox();
         jtf=new JTextField();
@@ -161,10 +161,10 @@ public class Fenetre extends JFrame implements ActionListener
             pan2.add(lab2);
             pan2.add(jtf);
             pan2.add(lab3);
-            pan2.add(jtf2);
-            pan2.add(b4);
+            pan2.add(jtf2);            
             pan2.add(b5);
             pan2.add(bv1);
+            pan2.add(b4);
             add(pan2);
             this.setVisible(true);
         }
@@ -177,8 +177,9 @@ public class Fenetre extends JFrame implements ActionListener
             lab=new JLabel("Dans quel table voulez-vous ajoutée?");
             pan2.add(lab);
             pan2.add(box);
-            pan2.add(b4);
+            pan2.add(b5);
             pan2.add(bv2);
+            pan2.add(b4);
             add(pan2);
             pan2.setVisible(true);
         }
@@ -191,8 +192,9 @@ public class Fenetre extends JFrame implements ActionListener
             lab=new JLabel("Dans quel table voulez-vous ajoutée?");
             pan2.add(lab);
             pan2.add(box2);           
+            pan2.add(b5);
+            pan2.add(bv3);
             pan2.add(b4);
-            pan2.add(bv3); 
             add(pan2);
             this.setVisible(true);
         }
@@ -225,20 +227,12 @@ public class Fenetre extends JFrame implements ActionListener
             JSplitPane splitPane = new JSplitPane();
             splitPane.setSize(600,500);
             splitPane.setDividerSize(10);
-            splitPane.setDividerLocation(350);
+            splitPane.setDividerLocation(500);
             splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
             splitPane.setLeftComponent(pan2);
             splitPane.setRightComponent(pan3);
             getContentPane().add(splitPane); //ajouter le panneau dans la fenetre
             this.setVisible(true);
-        }
-        else if(e.getSource()==bv21){
-            System.out.println(jtf.getText());
-            System.out.println(jtf2.getText());
-            System.out.println(jtf3.getText());
-            System.out.println(jtf4.getText());
-            System.out.println(rech.verifier(choix1,don,don2));
-
         }
         else if(e.getSource()==bv21){
             lab=new JLabel(jtf.getText());
@@ -323,12 +317,6 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv26){
-            System.out.println(jtf.getText());
-            System.out.println(jtf2.getText());
-            System.out.println(jtf3.getText());
-            System.out.println(jtf4.getText());
-            System.out.println(jtf5.getText());
-            System.out.println(jtf6.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -352,10 +340,6 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv27){
-            System.out.println(jtf.getText());
-            System.out.println(jtf2.getText());
-            System.out.println(jtf3.getText());
-            System.out.println(jtf4.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -373,8 +357,6 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv28){
-            System.out.println(jtf.getText());
-            System.out.println(jtf2.getText());
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             pan3.add(lab);
