@@ -18,6 +18,7 @@ import vue.Fenetre;
  * @author Albert
  */
 public class TestHop {
+    //attributs
     private static Connexion local;
     private static Recherche rech;
     private static Update maj;

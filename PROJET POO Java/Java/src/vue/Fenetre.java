@@ -239,6 +239,58 @@ public class Fenetre extends JFrame implements ActionListener
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
             lab4=new JLabel(jtf4.getText());
+            donnée.add("chambre");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            add(pan3);
+            System.out.println(maj.ajouter(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv22){
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            donnée.add("docteur");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            add(pan3);
+            maj.executerRequete(maj.ajouter(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv23){
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            lab5=new JLabel(jtf5.getText());
+            donnée.add("employe");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            pan3.add(lab5);
+            donnée.add(jtf5.getText());
+            add(pan3);
+            maj.executerRequete(maj.ajouter(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv24){
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            donnée.add("hospitalisation");
             pan3.add(lab);
             donnée.add(jtf.getText());
             pan3.add(lab2);
@@ -251,59 +303,12 @@ public class Fenetre extends JFrame implements ActionListener
             maj.executerRequete(maj.ajouter(donnée));
             this.setVisible(true);
         }
-        else if(e.getSource()==bv22){
-            lab=new JLabel(jtf.getText());
-            lab2=new JLabel(jtf2.getText());
-            pan3.add(lab);
-            donnée.add(jtf.getText());
-            pan3.add(lab2);
-            donnée.add(jtf2.getText());
-            add(pan3);
-            maj.ajouter(donnée);
-            this.setVisible(true);
-        }
-        else if(e.getSource()==bv23){
-            lab=new JLabel(jtf.getText());
-            lab2=new JLabel(jtf2.getText());
-            lab3=new JLabel(jtf3.getText());
-            lab4=new JLabel(jtf4.getText());
-            lab5=new JLabel(jtf5.getText());
-            pan3.add(lab);
-            donnée.add(jtf.getText());
-            pan3.add(lab2);
-            donnée.add(jtf2.getText());
-            pan3.add(lab3);
-            donnée.add(jtf3.getText());
-            pan3.add(lab4);
-            donnée.add(jtf4.getText());
-            pan3.add(lab5);
-            donnée.add(jtf5.getText());
-            add(pan3);
-            maj.ajouter(donnée);
-            this.setVisible(true);
-        }
-        else if(e.getSource()==bv24){
-            lab=new JLabel(jtf.getText());
-            lab2=new JLabel(jtf2.getText());
-            lab3=new JLabel(jtf3.getText());
-            lab4=new JLabel(jtf4.getText());
-            pan3.add(lab);
-            donnée.add(jtf.getText());
-            pan3.add(lab2);
-            donnée.add(jtf2.getText());
-            pan3.add(lab3);
-            donnée.add(jtf3.getText());
-            pan3.add(lab4);
-            donnée.add(jtf4.getText());
-            add(pan3);
-            maj.ajouter(donnée);
-            this.setVisible(true);
-        }
         else if(e.getSource()==bv25){
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
             lab4=new JLabel(jtf4.getText());
+            donnée.add("infirmer");
             pan3.add(lab);
             donnée.add(jtf.getText());
             pan3.add(lab2);
@@ -313,7 +318,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.ajouter(donnée);
+            maj.executerRequete(maj.ajouter(donnée));
             this.setVisible(true);
         }
         else if(e.getSource()==bv26){
@@ -323,6 +328,7 @@ public class Fenetre extends JFrame implements ActionListener
             lab4=new JLabel(jtf4.getText());
             lab5=new JLabel(jtf5.getText());
             lab6=new JLabel(jtf6.getText());
+            donnée.add("malade");
             pan3.add(lab);
             donnée.add(jtf.getText());
             pan3.add(lab2);
@@ -336,7 +342,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab6);
             donnée.add(jtf6.getText());
             add(pan3);
-            maj.ajouter(donnée);
+            maj.executerRequete(maj.ajouter(donnée));
             this.setVisible(true);
         }
         else if(e.getSource()==bv27){
@@ -344,6 +350,7 @@ public class Fenetre extends JFrame implements ActionListener
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
             lab4=new JLabel(jtf4.getText());
+            donnée.add("service");
             pan3.add(lab);
             donnée.add(jtf.getText());
             pan3.add(lab2);
@@ -353,19 +360,20 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.ajouter(donnée);
+            maj.executerRequete(maj.ajouter(donnée));
             this.setVisible(true);
         }
         else if(e.getSource()==bv28){
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
+            donnée.add("soigne");
             pan3.add(lab);
             donnée.add(jtf.getText());
             pan3.add(lab2);
             donnée.add(jtf2.getText());
             add(pan3);
             donnée.add(jtf3.getText());
-            maj.ajouter(donnée);
+            maj.executerRequete(maj.ajouter(donnée));
             this.setVisible(true);
         }
         else if(e.getSource()==bv2){

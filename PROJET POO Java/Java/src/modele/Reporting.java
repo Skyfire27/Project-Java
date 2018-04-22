@@ -6,11 +6,8 @@
 package modele;
 
 import controller.Connexion;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,55 +16,51 @@ import java.util.logging.Logger;
  * @author Albert
  */
 public class Reporting {
-
+    //attributs
     private Connexion local;
-    private String requeteRep, requete;
-    private ArrayList<String> liste, listeb;
+    private String requeteRep, requete; //variable pour stocker les requetes
+    private ArrayList<String> liste, listeb; //Arraylist pour stocker les valeurs de l'execution de la requete
     private double chiffre, chiffre2, total;
-    private ResultSet rset, rsetb;
-    private Statement stmt;
 
+    /**
+     * Constructeur par défaut
+     */
     public Reporting() {
         try {
             local = new Connexion("projet", "root", "");
             requeteRep = "";
             requete = "";
-            rset = null;
-            stmt = local.getStmt();
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public Reporting(String database, String username, String mdp) {
-        try {
-            local = new Connexion(database, username, mdp);
-            requeteRep = "";
-            rset = null;
-            stmt = local.getStmt();
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
+    /**
+     * Constructeur surchargé par local
+     * @param local variable de type Connexion
+     */
     public Reporting(Connexion local) {
         this.local = local;
         requeteRep = "";
         requete = "";
-        rset = null;
-        rsetb =null;
         chiffre = chiffre2 = total = 0;
-        stmt = local.getStmt();
     }
 
+    /**
+     * Methode pour récuperer un pourcentage selon le service d'hospitalisation
+     * @param demande variable de type String
+     * @return total*100 variable de type double
+     */
     public double hospitalisationRep(String demande) {
         requeteRep = "SELECT COUNT(*) FROM hospitalisation WHERE code_service = '" + demande + "'";
         requete = "SELECT COUNT(*) FROM hospitalisation";
         try {
-            liste = local.remplirChampsRequete(requeteRep);
-            listeb = local.remplirChampsRequete(requete);
-            String elem = liste.get(0).substring(0,(liste.get(0).length()>=1)? liste.get(0).length()-1 : 0);
+            liste = local.remplirChampsRequete(requeteRep); //recupérer dans liste la valeur de la requeteRep
+            listeb = local.remplirChampsRequete(requete); //recupérer dans liste la valeur de la requete
+            //transforme le String contenu dans liste en concatenant, en prenant soin de retirer le dernier charactère de liste (,).
+            String elem = liste.get(0).substring(0,(liste.get(0).length()>=1)? liste.get(0).length()-1 : 0); 
             String elem2 = listeb.get(0).substring(0,(listeb.get(0).length()>=1)? listeb.get(0).length()-1 : 0);
+            //convertir le string en une valeur int
             chiffre = Integer.parseInt(elem);
             chiffre2 = Integer.parseInt(elem2);
             total = chiffre/chiffre2;
@@ -77,28 +70,24 @@ public class Reporting {
         return total*100;
     }
     
+    /**
+     * Methode pour récuperer un pourcentage des docteurs selon leurs specialités
+     * @param demande variable de type String
+     * @return total*100 variable de type double
+     */
     public double docteurRep(String demande) {
         requeteRep = "SELECT COUNT(*) FROM docteur WHERE specialite = '" + demande + "'";
         requete = "SELECT COUNT(*) FROM docteur";
         try {
             liste = local.remplirChampsRequete(requeteRep);
             listeb = local.remplirChampsRequete(requete);
+            //transforme le String contenu dans liste en concatenant, en prenant soin de retirer le dernier charactère de liste (,).
             String elem = liste.get(0).substring(0,(liste.get(0).length()>=1)? liste.get(0).length()-1 : 0);
             String elem2 = listeb.get(0).substring(0,(listeb.get(0).length()>=1)? listeb.get(0).length()-1 : 0);
+            //convertir le string en une valeur int
             chiffre = Integer.parseInt(elem);
             chiffre2 = Integer.parseInt(elem2);
             total = chiffre/chiffre2;
-        } catch (SQLException ex) {
-            Logger.getLogger(Reporting.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return total*100;
-    }
-    public double docteurRep() {
-        requete = "SELECT COUNT(*) FROM docteur WHERE specialite = 'Anesthesiste'";
-        try {
-            liste = local.remplirChampsRequete(requete);
-            String elem = liste.get(0).substring(0,(liste.get(0).length()>=1)? liste.get(0).length()-1 : 0);
-            chiffre = Integer.parseInt(elem);
         } catch (SQLException ex) {
             Logger.getLogger(Reporting.class.getName()).log(Level.SEVERE, null, ex);
         }

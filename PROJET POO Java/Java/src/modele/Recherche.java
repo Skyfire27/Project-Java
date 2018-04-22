@@ -21,34 +21,42 @@ public class Recherche {
     private String requete;
     private ArrayList<String> liste;
 
-
+    /**
+     * Constructeur par défaut
+     */
     public Recherche() {
         try {
             local = new Connexion("projet", "root", "");
             requete = "";
+            liste = null;
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public Recherche(String database, String username, String mdp) {
-        try {
-            local = new Connexion(database, username, mdp);
-            requete = "";
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(Recherche.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
+    /**
+     * Constructeur surchargé par local
+     * @param local variable de type Connexion
+     */
     public Recherche(Connexion local) {
         this.local = local;
         requete = "";
+        liste = null;
     }
     
+    /**
+     * Accesseur pour modifier la valeur de liste en privé
+     * @param liste 
+     */
     public void setListe(ArrayList<String> liste) {
         this.liste = liste;
     }
     
+    /**
+     * Methode qui va executer la requete vers la bdd, pour récuperer un ArrayList liste
+     * @param requete variable de type String
+     * @return variable de type ArrayList<String>
+     */
     public ArrayList<String> executerRequete(String requete) {
         try {
             liste = local.remplirChampsRequete(requete);
@@ -60,6 +68,13 @@ public class Recherche {
         return liste;
     }
     
+    /**
+     * Methode qui vérifie les saisies de l'utilisateur et créer la requête approprié
+     * @param table variable de type String
+     * @param data variable de type String
+     * @param demande variable de type String
+     * @return requete variable de type String
+     */
     public String verifier(String table, String data, String demande) {        
             if (("".equals(demande))&&("".equals(data))){
                 requete = "select * from " + table;
