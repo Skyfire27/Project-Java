@@ -22,7 +22,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 public class Fenetre extends JFrame implements ActionListener
 {
-    private JPanel pan, pan2, pan3;//fenêtre de visualisation de l'interface d'origine
+    private JPanel pan, pan2, pan3, pan4;//fenêtre de visualisation de l'interface d'origine
     private JLabel lab, lab2, lab3,lab4,lab5,lab6;//instancie la texte
     // instancie les boutons
     private JButton b1,b2,b3,b4,b5; 
@@ -34,7 +34,7 @@ public class Fenetre extends JFrame implements ActionListener
     private Recherche rech;
     private Update maj;
     private Reporting rep;
-    private ArrayList<String> donnée;
+    private ArrayList<String> donnée,affichage;
     
     public Fenetre(Recherche rech, Update maj, Reporting rep){
         this.rech =rech;
@@ -45,6 +45,7 @@ public class Fenetre extends JFrame implements ActionListener
         pan=new JPanel();//instancier le panneau
         pan2=new JPanel();//instancier le deuxième panneau
         pan3=new JPanel();
+        pan4=new JPanel();
         lab=new JLabel("Database utilisée: 'projet' ");
         b1=new JButton("Recherche d'information");
         b2=new JButton("Mise à jour");
@@ -71,6 +72,7 @@ public class Fenetre extends JFrame implements ActionListener
         jtf5=new JTextField();
         jtf6=new JTextField();
         donnée=new ArrayList();
+        affichage=new ArrayList();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
 
@@ -198,14 +200,37 @@ public class Fenetre extends JFrame implements ActionListener
             System.exit(0);
         }
         else if(e.getSource()==b5){
+            setSize(500,600);
             pan2.setVisible(false);
+            pan3.setVisible(false);
             pan.setVisible(true);
         }
         else if(e.getSource()==bv1){
+            FlowLayout fl2=new FlowLayout();
+            fl2.setHgap(100);
+            fl2.setVgap(20);
+            pan3.setLayout(fl2);
             choix1= (String) box.getSelectedItem();
             don=jtf.getText();
             don2=jtf2.getText();
             rech.verifier(choix1,don,don2);
+            affichage=rech.executerRequete(rech.verifier(choix1,don,don2));
+            Iterator it = affichage.iterator();
+            while (it.hasNext()) {
+                    lab=new JLabel((String) it.next());
+                    pan3.add(lab);
+                }
+            add(pan3);            
+            setSize(3000,600);
+            JSplitPane splitPane = new JSplitPane();
+            splitPane.setSize(600,500);
+            splitPane.setDividerSize(10);
+            splitPane.setDividerLocation(350);
+            splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+            splitPane.setLeftComponent(pan2);
+            splitPane.setRightComponent(pan3);
+            getContentPane().add(splitPane); //ajouter le panneau dans la fenetre
+            this.setVisible(true);
         }
         else if(e.getSource()==bv21){
             System.out.println(jtf.getText());
