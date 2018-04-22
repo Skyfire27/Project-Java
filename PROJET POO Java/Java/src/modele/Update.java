@@ -56,7 +56,7 @@ public class Update {
     }
     /**
      * Methode qui va transformer les données récupérer en une requête de modification selon la demande
-     * @param donnee variable de type ArrayList<String>
+     * @param donnee variable de type ArrayList de String
      * @return requeteMaj variable de type String
      */
     public String modifier(ArrayList<String> donnee) {
@@ -96,7 +96,7 @@ public class Update {
     
     /**
      * Methode qui va transformer les données récupérer pour supprimer une ligne contenant une info selon la demande
-     * @param donnee variable de type ArrayList<String>
+     * @param donnee variable de type ArrayList de String
      * @return requeteMaj variable de type String
      */
     public String suppression(ArrayList<String> donnee){
@@ -136,7 +136,7 @@ public class Update {
 
     /**
      * Methode qui va transformer les données récupérer en une requête de mise a jour selon la demande
-     * @param donnee variable de type ArrayList<String>
+     * @param donnee variable de type ArrayList de String
      * @return requeteMaj variable de type String
      */
     public String ajouter(ArrayList<String> donnee) {

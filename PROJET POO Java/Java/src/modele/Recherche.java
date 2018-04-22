@@ -45,22 +45,13 @@ public class Recherche {
     }
     
     /**
-     * Accesseur pour modifier la valeur de liste en privé
-     * @param liste 
-     */
-    public void setListe(ArrayList<String> liste) {
-        this.liste = liste;
-    }
-    
-    /**
      * Methode qui va executer la requete vers la bdd, pour récuperer un ArrayList liste
      * @param requete variable de type String
-     * @return variable de type ArrayList<String>
+     * @return variable de type ArrayList de String
      */
     public ArrayList<String> executerRequete(String requete) {
         try {
             liste = local.remplirChampsRequete(requete);
-            this.setListe(liste);
                 
         } catch (SQLException ex) {
             Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);

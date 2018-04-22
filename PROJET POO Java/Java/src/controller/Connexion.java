@@ -44,11 +44,11 @@ public class Connexion {
     /**
      * Constructeur avec 3 paramètres : nom, login et password de la BDD locale
      *
-     * @param nameDatabase
-     * @param loginDatabase
-     * @param passwordDatabase
-     * @throws java.sql.SQLException
-     * @throws java.lang.ClassNotFoundException
+     * @param nameDatabase variable de type String
+     * @param loginDatabase variable de type String
+     * @param passwordDatabase variable de type String
+     * @throws java.sql.SQLException gestion d'erreur
+     * @throws java.lang.ClassNotFoundException gestion d'erreur
      */
     public Connexion(String nameDatabase, String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException {
         // chargement driver "com.mysql.jdbc.Driver"
@@ -66,7 +66,7 @@ public class Connexion {
     /**
      * Méthode qui ajoute la table en parametre dans son ArrayList
      *
-     * @param table
+     * @param table variable de type String
      */
     public void ajouterTable(String table) {
         tables.add(table);
@@ -76,7 +76,7 @@ public class Connexion {
      * Méthode qui ajoute la requete de selection en parametre dans son
      * ArrayList
      *
-     * @param requete
+     * @param requete variable de type String
      */
     public void ajouterRequete(String requete) {
         requetes.add(requete);
@@ -85,7 +85,7 @@ public class Connexion {
     /**
      * Méthode qui ajoute la requete de MAJ en parametre dans son ArrayList
      *
-     * @param requete
+     * @param requete variable de type String
      */
     public void ajouterRequeteMaj(String requete) {
         requetesMaj.add(requete);
@@ -94,9 +94,9 @@ public class Connexion {
     /**
      * Méthode qui retourne l'ArrayList des champs de la table en parametre
      *
-     * @param table
-     * @return
-     * @throws java.sql.SQLException
+     * @param table variable de type String
+     * @return liste variable de type ArrayList String
+     * @throws java.sql.SQLException gestion d'erreur
      */
     public ArrayList remplirChampsTable(String table) throws SQLException {
         // récupération de l'ordre de la requete
@@ -130,9 +130,9 @@ public class Connexion {
     /**
      * Methode qui retourne l'ArrayList des champs de la requete en parametre
      *
-     * @param requete
-     * @return
-     * @throws java.sql.SQLException
+     * @param requete variable de type String
+     * @return liste variable de type ArrayList String
+     * @throws java.sql.SQLException gestion d'erreur
      */
     public ArrayList remplirChampsRequete(String requete) throws SQLException {
         // récupération de l'ordre de la requete
@@ -172,8 +172,8 @@ public class Connexion {
     /**
      * Méthode qui execute une requete de MAJ en parametre
      *
-     * @param requeteMaj
-     * @throws java.sql.SQLException
+     * @param requeteMaj variable de type String
+     * @throws java.sql.SQLException gestion d'erreur
      */
     public void executeUpdate(String requeteMaj) throws SQLException {
         stmt.executeUpdate(requeteMaj);

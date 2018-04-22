@@ -40,9 +40,9 @@ public class Fenetre extends JFrame implements ActionListener
     
     /**
      * Constructeur de l'affichage
-     * @param rech
-     * @param maj
-     * @param rep 
+     * @param rech variable de type Recherche
+     * @param maj variable de type Update
+     * @param rep variable de type Reporting
      */
     
     public Fenetre(Recherche rech, Update maj, Reporting rep){
@@ -206,7 +206,7 @@ public class Fenetre extends JFrame implements ActionListener
     
     /**
      * méthode pour les différentes actions faites sur l'interface
-     * @param e 
+     * @param e variable de type ActinEvent
      */
     @Override
     public void actionPerformed (ActionEvent e)
