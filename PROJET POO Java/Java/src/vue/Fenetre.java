@@ -269,7 +269,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            System.out.println(maj.ajouter(donnée));
+            maj.executerRequete(maj.ajouter(donnée));
             this.setVisible(true);
         }
         else if(e.getSource()==bv22){
