@@ -27,6 +27,8 @@ public class Fenetre extends JFrame implements ActionListener
     // créer les boutons
     private JButton b1,b2,b3,b4,b5; 
     private JButton bv1,bv2,bv21,bv22,bv23,bv24,bv25,bv26,bv27,bv28,bv3;
+    private JButton bv211,bv221,bv231,bv241,bv251,bv261,bv271,bv281;
+    private JButton bv212,bv222,bv232,bv242,bv252,bv262,bv272,bv282;
     private JComboBox box,box2;
     private JTextField jtf, jtf2, jtf3, jtf4, jtf5, jtf6;
     private String don,don2;
@@ -72,6 +74,22 @@ public class Fenetre extends JFrame implements ActionListener
         bv26=new JButton("Ajouter");
         bv27=new JButton("Ajouter");
         bv28=new JButton("Ajouter");
+        bv211=new JButton("Modifier");
+        bv221=new JButton("Modifier");
+        bv231=new JButton("Modifier");
+        bv241=new JButton("Modifier");
+        bv251=new JButton("Modifier");
+        bv261=new JButton("Modifier");
+        bv271=new JButton("Modifier");
+        bv281=new JButton("Modifier");
+        bv212=new JButton("Supprimer");
+        bv222=new JButton("Supprimer");
+        bv232=new JButton("Supprimer");
+        bv242=new JButton("Supprimer");
+        bv252=new JButton("Supprimer");
+        bv262=new JButton("Supprimer");
+        bv272=new JButton("Supprimer");
+        bv282=new JButton("Supprimer");
         box=new JComboBox();
         box2=new JComboBox();
         //instancier les zones de textes
@@ -81,7 +99,6 @@ public class Fenetre extends JFrame implements ActionListener
         jtf4=new JTextField();
         jtf5=new JTextField();
         jtf6=new JTextField();
-        donnée=new ArrayList();
         affichage=new ArrayList();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le programme lorsque l'utilisateur ferme la fenêtre
     }
@@ -115,6 +132,22 @@ public class Fenetre extends JFrame implements ActionListener
         bv26.setPreferredSize(new Dimension(100,50));
         bv27.setPreferredSize(new Dimension(100,50));
         bv28.setPreferredSize(new Dimension(100,50));
+        bv211.setPreferredSize(new Dimension(100,50));
+        bv221.setPreferredSize(new Dimension(100,50));
+        bv231.setPreferredSize(new Dimension(100,50));
+        bv241.setPreferredSize(new Dimension(100,50));
+        bv251.setPreferredSize(new Dimension(100,50));
+        bv261.setPreferredSize(new Dimension(100,50));
+        bv271.setPreferredSize(new Dimension(100,50));
+        bv281.setPreferredSize(new Dimension(100,50));
+        bv212.setPreferredSize(new Dimension(100,50));
+        bv222.setPreferredSize(new Dimension(100,50));
+        bv232.setPreferredSize(new Dimension(100,50));
+        bv242.setPreferredSize(new Dimension(100,50));
+        bv252.setPreferredSize(new Dimension(100,50));
+        bv262.setPreferredSize(new Dimension(100,50));
+        bv272.setPreferredSize(new Dimension(100,50));
+        bv282.setPreferredSize(new Dimension(100,50));
         box.setPreferredSize(new Dimension(200,30));
         box2.setPreferredSize(new Dimension(200,30));
         //initialisation des bouton, panneau et box
@@ -151,6 +184,22 @@ public class Fenetre extends JFrame implements ActionListener
         bv26.addActionListener(this);
         bv27.addActionListener(this);
         bv28.addActionListener(this);
+        bv211.addActionListener(this);
+        bv221.addActionListener(this);
+        bv231.addActionListener(this);
+        bv241.addActionListener(this);
+        bv251.addActionListener(this);
+        bv261.addActionListener(this);
+        bv271.addActionListener(this);
+        bv281.addActionListener(this);
+        bv212.addActionListener(this);
+        bv222.addActionListener(this);
+        bv232.addActionListener(this);
+        bv242.addActionListener(this);
+        bv252.addActionListener(this);
+        bv262.addActionListener(this);
+        bv272.addActionListener(this);
+        bv282.addActionListener(this);
         add(pan);
         this.setVisible(true);
     }
@@ -254,6 +303,7 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv21){
+            donnée=new ArrayList();
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -272,6 +322,7 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv22){
+            donnée=new ArrayList();
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             donnée.add("docteur");
@@ -284,6 +335,7 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv23){
+            donnée=new ArrayList();
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -305,6 +357,7 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv24){
+            donnée=new ArrayList();
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -323,6 +376,7 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv25){
+            donnée=new ArrayList();
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -341,6 +395,7 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv26){
+            donnée=new ArrayList();
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -365,6 +420,7 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv27){
+            donnée=new ArrayList();
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             lab3=new JLabel(jtf3.getText());
@@ -383,6 +439,7 @@ public class Fenetre extends JFrame implements ActionListener
             this.setVisible(true);
         }
         else if(e.getSource()==bv28){
+            donnée=new ArrayList();
             lab=new JLabel(jtf.getText());
             lab2=new JLabel(jtf2.getText());
             donnée.add("soigne");
@@ -411,8 +468,10 @@ public class Fenetre extends JFrame implements ActionListener
                 pan3.add(jtf2);
                 pan3.add(jtf3);
                 pan3.add(jtf4);
-                pan3.add(b4);
                 pan3.add(bv21);
+                pan3.add(bv211);
+                pan3.add(b4);
+                pan3.add(bv212);                
             }
             else if (box.getSelectedItem()=="docteur"){
                 lab=new JLabel("Entrez les informations: numero, specialite");
@@ -421,8 +480,10 @@ public class Fenetre extends JFrame implements ActionListener
                 pan3.add(lab);
                 pan3.add(jtf);
                 pan3.add(jtf2);
-                pan3.add(b4);
                 pan3.add(bv22);
+                pan3.add(bv221);
+                pan3.add(b4);
+                pan3.add(bv222);                
             }
             else if (box.getSelectedItem()=="employe"){
                 lab=new JLabel("Entrez les informations: numero, nom, prenom, adresse, tel");
@@ -437,8 +498,10 @@ public class Fenetre extends JFrame implements ActionListener
                 pan3.add(jtf3);
                 pan3.add(jtf4);
                 pan3.add(jtf5);
-                pan3.add(b4);
                 pan3.add(bv23);
+                pan3.add(bv231);
+                pan3.add(b4);
+                pan3.add(bv232);                
             }
             else if (box.getSelectedItem()=="hospitalisation"){
                 lab=new JLabel("Entrez les informations: no_malade, code_service no_chambre, lit");
@@ -451,8 +514,10 @@ public class Fenetre extends JFrame implements ActionListener
                 pan3.add(jtf2);
                 pan3.add(jtf3);
                 pan3.add(jtf4);
-                pan3.add(b4);
                 pan3.add(bv24);
+                pan3.add(bv241);
+                pan3.add(b4);
+                pan3.add(bv242);                
             }
             else if (box.getSelectedItem()=="infirmier"){
                 lab=new JLabel("Entrez les informations: numero, code_service, rotation, salaire");
@@ -465,8 +530,10 @@ public class Fenetre extends JFrame implements ActionListener
                 pan3.add(jtf2);
                 pan3.add(jtf3);
                 pan3.add(jtf4);
-                pan3.add(b4);
                 pan3.add(bv25);
+                pan3.add(bv251);
+                pan3.add(b4);
+                pan3.add(bv252);                
             }
             else if (box.getSelectedItem()=="malade"){
                 lab=new JLabel("Entrez les informations: numero, nom, prenom, adresse, tel, mutuelle");
@@ -483,8 +550,10 @@ public class Fenetre extends JFrame implements ActionListener
                 pan3.add(jtf4);
                 pan3.add(jtf5);
                 pan3.add(jtf6);
-                pan3.add(b4);
                 pan3.add(bv26);
+                pan3.add(bv261);
+                pan3.add(b4);
+                pan3.add(bv262);                
             }
             else if (box.getSelectedItem()=="service"){
                 lab=new JLabel("Entrez les informations: code, nom, batiment, directeur");
@@ -497,8 +566,10 @@ public class Fenetre extends JFrame implements ActionListener
                 pan3.add(jtf2);
                 pan3.add(jtf3);
                 pan3.add(jtf4);
-                pan3.add(b4);
                 pan3.add(bv27);
+                pan3.add(bv271);
+                pan3.add(b4);
+                pan3.add(bv272);                
             }
             else if (box.getSelectedItem()=="soigne"){
                 lab=new JLabel("Entrez les informations: no_docteur, no_malade");
@@ -507,8 +578,10 @@ public class Fenetre extends JFrame implements ActionListener
                 pan3.add(lab);
                 pan3.add(jtf);
                 pan3.add(jtf2);
-                pan3.add(b4);
                 pan3.add(bv28);
+                pan3.add(bv281);
+                pan3.add(b4);
+                pan3.add(bv282);                
             }
             pan2.setVisible(false);
             add(pan3);
@@ -549,6 +622,306 @@ public class Fenetre extends JFrame implements ActionListener
                 frame.pack();
                 frame.setVisible(true);
             }
+        }
+        else if(e.getSource()==bv211){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            donnée.add("chambre");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            add(pan3);
+            maj.executerRequete(maj.modifier(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv221){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            donnée.add("docteur");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            add(pan3);
+            maj.executerRequete(maj.modifier(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv231){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            lab5=new JLabel(jtf5.getText());
+            donnée.add("employe");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            pan3.add(lab5);
+            donnée.add(jtf5.getText());
+            add(pan3);
+            maj.executerRequete(maj.modifier(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv241){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            donnée.add("hospitalisation");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            add(pan3);
+            maj.executerRequete(maj.modifier(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv251){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            donnée.add("infirmer");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            add(pan3);
+            maj.executerRequete(maj.modifier(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv261){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            lab5=new JLabel(jtf5.getText());
+            lab6=new JLabel(jtf6.getText());
+            donnée.add("malade");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            pan3.add(lab5);
+            donnée.add(jtf5.getText());
+            pan3.add(lab6);
+            donnée.add(jtf6.getText());
+            add(pan3);
+            maj.executerRequete(maj.modifier(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv271){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            donnée.add("service");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            add(pan3);
+            maj.executerRequete(maj.modifier(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv281){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            donnée.add("soigne");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            add(pan3);
+            donnée.add(jtf3.getText());
+            maj.executerRequete(maj.modifier(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv212){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            donnée.add("chambre");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            add(pan3);
+            maj.executerRequete(maj.suppression(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv222){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            donnée.add("docteur");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            add(pan3);
+            maj.executerRequete(maj.suppression(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv232){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            lab5=new JLabel(jtf5.getText());
+            donnée.add("employe");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            pan3.add(lab5);
+            donnée.add(jtf5.getText());
+            add(pan3);
+            maj.executerRequete(maj.suppression(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv242){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            donnée.add("hospitalisation");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            add(pan3);
+            maj.executerRequete(maj.suppression(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv252){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            donnée.add("infirmer");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            add(pan3);
+            maj.executerRequete(maj.suppression(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv262){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            lab5=new JLabel(jtf5.getText());
+            lab6=new JLabel(jtf6.getText());
+            donnée.add("malade");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            pan3.add(lab5);
+            donnée.add(jtf5.getText());
+            pan3.add(lab6);
+            donnée.add(jtf6.getText());
+            add(pan3);
+            maj.executerRequete(maj.suppression(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv272){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            lab3=new JLabel(jtf3.getText());
+            lab4=new JLabel(jtf4.getText());
+            donnée.add("service");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            pan3.add(lab3);
+            donnée.add(jtf3.getText());
+            pan3.add(lab4);
+            donnée.add(jtf4.getText());
+            add(pan3);
+            maj.executerRequete(maj.suppression(donnée));
+            this.setVisible(true);
+        }
+        else if(e.getSource()==bv282){
+            donnée=new ArrayList();
+            lab=new JLabel(jtf.getText());
+            lab2=new JLabel(jtf2.getText());
+            donnée.add("soigne");
+            pan3.add(lab);
+            donnée.add(jtf.getText());
+            pan3.add(lab2);
+            donnée.add(jtf2.getText());
+            add(pan3);
+            donnée.add(jtf3.getText());
+            maj.executerRequete(maj.suppression(donnée));
+            this.setVisible(true);
         }
     }
 }
