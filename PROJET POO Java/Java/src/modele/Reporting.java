@@ -49,9 +49,10 @@ public class Reporting {
     /**
      * Methode pour récuperer un pourcentage selon le service d'hospitalisation
      * @param demande variable de type String
-     * @return total*100 variable de type double
+     * @return total variable de type double
      */
     public double hospitalisationRep(String demande) {
+        //requete pour compter le nombre de service dont le nom est "demande"
         requeteRep = "SELECT COUNT(*) FROM hospitalisation WHERE code_service = '" + demande + "'";
         requete = "SELECT COUNT(*) FROM hospitalisation";
         try {
@@ -63,17 +64,17 @@ public class Reporting {
             //convertir le string en une valeur int
             chiffre = Integer.parseInt(elem);
             chiffre2 = Integer.parseInt(elem2);
-            total = chiffre/chiffre2;
+            total = (chiffre/chiffre2)*100;
         } catch (SQLException ex) {
             Logger.getLogger(Reporting.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return total*100;
+        return total;
     }
     
     /**
      * Methode pour récuperer un pourcentage des docteurs selon leurs specialités
      * @param demande variable de type String
-     * @return total*100 variable de type double
+     * @return total variable de type double
      */
     public double docteurRep(String demande) {
         requeteRep = "SELECT COUNT(*) FROM docteur WHERE specialite = '" + demande + "'";
@@ -87,11 +88,11 @@ public class Reporting {
             //convertir le string en une valeur int
             chiffre = Integer.parseInt(elem);
             chiffre2 = Integer.parseInt(elem2);
-            total = chiffre/chiffre2;
+            total = (chiffre/chiffre2)*100;
         } catch (SQLException ex) {
             Logger.getLogger(Reporting.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return total*100;
+        return total;
     }
 
 }

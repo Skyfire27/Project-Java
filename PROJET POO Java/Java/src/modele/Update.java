@@ -56,13 +56,14 @@ public class Update {
     }
     /**
      * Methode qui va transformer les données récupérer en une requête de modification selon la demande
-     * @param donnee
+     * @param donnee variable de type ArrayList<String>
      * @return requeteMaj variable de type String
      */
     public String modifier(ArrayList<String> donnee) {
         if (null != donnee.get(0)) {
             switch (donnee.get(0)) {
                 case "chambre":
+                    //requete SQL qui permet de modifier la table
                     requeteMaj = "UPDATE " + donnee.get(0) + " SET no_chambre = '" + donnee.get(2) + "', surveillant = '" + donnee.get(3) + "', nb_lits = '" + donnee.get(4) +"' WHERE code_service = '" + donnee.get(1) + "'";
                     break;
                 case "docteur":
@@ -96,13 +97,14 @@ public class Update {
 
     /**
      * Methode qui va transformer les données récupérer en une requête de mise a jour selon la demande
-     * @param donnee
+     * @param donnee variable de type ArrayList<String>
      * @return requeteMaj variable de type String
      */
     public String ajouter(ArrayList<String> donnee) {
         if (null != donnee.get(0)) { //verifier que la saisie est pas null, même si elle est forcement non nulle.
             switch (donnee.get(0)) { //recupère la premier valeur de l'arraylist donnee
                 case "chambre":
+                    //requete SQL qui permet d'ajouter dans la table
                     requeteMaj = "INSERT INTO " + donnee.get(0) + " (code_service, no_chambre, surveillant, nb_lits) VALUES ('" + donnee.get(1) + "', '" + donnee.get(2) + "', '" + donnee.get(3) +  "', '" + donnee.get(4) +"')";
                     break;
                 case "docteur":
