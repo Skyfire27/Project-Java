@@ -15,9 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modele.*;
 import java.util.*;
-import java.io.*;
-
-import org.jfree.chart.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -36,11 +33,13 @@ public class Fenetre extends JFrame implements ActionListener
     private String choix1;
     private Recherche rech;
     private Update maj;
+    private Reporting rep;
     private ArrayList<String> donnée;
     
-    public Fenetre(Recherche rech, Update maj){
+    public Fenetre(Recherche rech, Update maj, Reporting rep){
         this.rech =rech;
         this.maj=maj;
+        this.rep = rep;
         setTitle("Hopital d'Albert et Yann");
         setSize(500,600);
         pan=new JPanel();//instancier le panneau
@@ -230,7 +229,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.executerRequete(maj.ajouter(donnée));
             this.setVisible(true);
         }
         else if(e.getSource()==bv22){
@@ -241,7 +240,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab2);
             donnée.add(jtf2.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv23){
@@ -261,7 +260,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab5);
             donnée.add(jtf5.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv24){
@@ -278,7 +277,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv25){
@@ -295,7 +294,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv26){
@@ -324,7 +323,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab6);
             donnée.add(jtf6.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv27){
@@ -345,7 +344,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan3.add(lab4);
             donnée.add(jtf4.getText());
             add(pan3);
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv28){
@@ -359,7 +358,7 @@ public class Fenetre extends JFrame implements ActionListener
             donnée.add(jtf2.getText());
             add(pan3);
             donnée.add(jtf3.getText());
-            maj.modifier(donnée);
+            maj.ajouter(donnée);
             this.setVisible(true);
         }
         else if(e.getSource()==bv2){
@@ -483,26 +482,24 @@ public class Fenetre extends JFrame implements ActionListener
 
         }
         else if (e.getSource()==bv3){
-            if (box2.getSelectedItem()=="hospitalisation"){
+            if (box2.getSelectedItem()=="hospitalisation"){ 
                 DefaultPieDataset dataset =new DefaultPieDataset();
-                dataset.setValue("REA", 43.2);
-                dataset.setValue("CHG", 27.9);
-                dataset.setValue("CAR", 79.5);
-                double tot=180-43.2-27.9-79.5;
-                dataset.setValue("Autres services", tot);
+                dataset.setValue("REA", rep.hospitalisationRep("REA"));
+                dataset.setValue("CHG", rep.hospitalisationRep("CHG"));
+                dataset.setValue("CAR", rep.hospitalisationRep("CAR"));        
                 JFreeChart chart = ChartFactory.createPieChart("Nombre de malade par service", dataset, true, true, false);
                 ChartFrame frame = new ChartFrame("Hospitalisation", chart);
                 frame.pack();
                 frame.setVisible(true);
             }
-            else if (box2.getSelectedItem()=="docteur"){
+            else if (box2.getSelectedItem()=="docteur"){             
                 DefaultPieDataset dataset =new DefaultPieDataset();
-                dataset.setValue("Pneumologue", 43.2);
-                dataset.setValue("Traumatologue", 27.9);
-                dataset.setValue("Cardiologue", 79.5);
-                dataset.setValue("Orthopediste", 79.5);
-                dataset.setValue("Radiologue", 79.5);
-                dataset.setValue("Anesthesiste", 79.5);
+                dataset.setValue("Pneumologue", rep.docteurRep("Pneumologue"));
+                dataset.setValue("Traumatologue", rep.docteurRep("Traumatologue"));
+                dataset.setValue("Cardiologue", rep.docteurRep("Cardiologue"));
+                dataset.setValue("Orthopediste", rep.docteurRep("Orthopediste"));
+                dataset.setValue("Radiologue", rep.docteurRep("Radiologue"));
+                dataset.setValue("Anesthesiste", rep.docteurRep("Anesthesiste"));
                 JFreeChart chart = ChartFactory.createPieChart("Nombre de docteur par service", dataset, true, true, false);
                 ChartFrame frame = new ChartFrame("Docteur", chart);
                 frame.pack();
@@ -510,7 +507,7 @@ public class Fenetre extends JFrame implements ActionListener
             }
             else if (box2.getSelectedItem()=="soigne"){
                 DefaultPieDataset dataset =new DefaultPieDataset();
-                dataset.setValue("Patient soigné", 43.2);
+                dataset.setValue("Patient soigné", 43.2); //SELECT * FROM soigne JOIN malade WHERE soigne.no_malade=malade.numero ORDER BY numero
                 dataset.setValue("Patient malade", 56.8);
                 JFreeChart chart = ChartFactory.createPieChart("Nombre de patient malade et soigné", dataset, true, true, false);
                 ChartFrame frame = new ChartFrame("Patient", chart);
