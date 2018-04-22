@@ -53,7 +53,7 @@ public class Recherche {
         try {
             liste = local.remplirChampsRequete(requete);
             this.setListe(liste);
-
+                
         } catch (SQLException ex) {
             Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);
         }
