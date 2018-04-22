@@ -24,7 +24,7 @@ public class Fenetre extends JFrame implements ActionListener
 {
     private JPanel pan, pan2, pan3, pan4;//fenêtre de visualisation de l'interface d'origine
     private JLabel lab, lab2, lab3,lab4,lab5,lab6;//instancie la texte
-    // instancie les boutons
+    // créer les boutons
     private JButton b1,b2,b3,b4,b5; 
     private JButton bv1,bv2,bv21,bv22,bv23,bv24,bv25,bv26,bv27,bv28,bv3;
     private JComboBox box,box2;
@@ -36,17 +36,27 @@ public class Fenetre extends JFrame implements ActionListener
     private Reporting rep;
     private ArrayList<String> donnée,affichage;
     
+    /**
+     * Constructeur de l'affichage
+     * @param rech
+     * @param maj
+     * @param rep 
+     */
+    
     public Fenetre(Recherche rech, Update maj, Reporting rep){
         this.rech =rech;
         this.maj=maj;
         this.rep = rep;
+        //met un titre et une taille au panneau
         setTitle("Hopital d'Albert et Yann");
         setSize(500,600);
-        pan=new JPanel();//instancier le panneau
-        pan2=new JPanel();//instancier le deuxième panneau
+        //instancier les panneaux
+        pan=new JPanel();
+        pan2=new JPanel();
         pan3=new JPanel();
         pan4=new JPanel();
         lab=new JLabel("Database utilisée: 'projet' ");
+        //instancier les boutons
         b1=new JButton("Recherche d'information");
         b2=new JButton("Mise à jour");
         b3=new JButton("Reporting");
@@ -65,6 +75,7 @@ public class Fenetre extends JFrame implements ActionListener
         bv28=new JButton("Ajouter");
         box=new JComboBox();
         box2=new JComboBox();
+        //instancier les zones de textes
         jtf=new JTextField();
         jtf2=new JTextField();
         jtf3=new JTextField();
@@ -83,11 +94,12 @@ public class Fenetre extends JFrame implements ActionListener
      * 
      */
     public void affiche(){
+        //permet l'espacement entre les boutons en largeur et hauteur
         FlowLayout fl=new FlowLayout();
         fl.setHgap(100);
         fl.setVgap(50);
         pan.setLayout(fl);//mise en forme de bouton à la suite
-        //initialisation des bouton, panneau et box
+        //Création de la taille des boutons, box et texte
         b1.setPreferredSize(new Dimension(200,50));
         b2.setPreferredSize(new Dimension(200,50));
         b3.setPreferredSize(new Dimension(200,50));
@@ -106,6 +118,7 @@ public class Fenetre extends JFrame implements ActionListener
         bv28.setPreferredSize(new Dimension(100,50));
         box.setPreferredSize(new Dimension(200,30));
         box2.setPreferredSize(new Dimension(200,30));
+        //initialisation des bouton, panneau et box
         box.addItem("chambre");
         box.addItem("docteur");
         box.addItem("employe");
@@ -142,9 +155,15 @@ public class Fenetre extends JFrame implements ActionListener
         add(pan);
         this.setVisible(true);
     }
+    
+    /**
+     * méthode pour les différentes actions faites sur l'interface
+     * @param e 
+     */
     @Override
     public void actionPerformed (ActionEvent e)
     {
+        //mise en place des différents choix pour l'affichage
         if(e.getSource()==b1){
             pan.setVisible(false);
             lab=new JLabel("Quel table voulez-vous?");
@@ -222,7 +241,8 @@ public class Fenetre extends JFrame implements ActionListener
                     lab=new JLabel((String) it.next());
                     pan3.add(lab);
                 }
-            add(pan3);            
+            add(pan3); 
+            //permet de faire 2 zones d'affichage
             setSize(3000,600);
             JSplitPane splitPane = new JSplitPane();
             splitPane.setSize(600,500);
@@ -490,6 +510,7 @@ public class Fenetre extends JFrame implements ActionListener
         }
         else if (e.getSource()==bv3){
             if (box2.getSelectedItem()=="hospitalisation"){ 
+                //Création des PieChart
                 DefaultPieDataset dataset =new DefaultPieDataset();
                 dataset.setValue("REA", rep.hospitalisationRep("REA"));
                 dataset.setValue("CHG", rep.hospitalisationRep("CHG"));
