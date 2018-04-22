@@ -92,7 +92,46 @@ public class Update {
             }
         }
         return requeteMaj;
-
+    }
+    
+    /**
+     * Methode qui va transformer les données récupérer pour supprimer une ligne contenant une info selon la demande
+     * @param donnee variable de type ArrayList<String>
+     * @return requeteMaj variable de type String
+     */
+    public String suppression(ArrayList<String> donnee){
+        if (null != donnee.get(0)) {
+            switch (donnee.get(0)) {
+                case "chambre":
+                    //requete SQL qui permet de supprimer une ligne de la table (prend le premier element de la table en referance)
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE code_service = '" + donnee.get(1) + "'";
+                    break;
+                case "docteur":
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE numero = '" + donnee.get(1) + "'";
+                    break;
+                case "employe":
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE numero = '" + donnee.get(1) + "'";
+                    break;
+                case "hospitalisation":
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE no_malade = '" + donnee.get(1) + "'";
+                    break;
+                case "infirmier":
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE numero = '" + donnee.get(1) + "'";
+                    break;
+                case "malade":
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE numero = '" + donnee.get(1) + "'";
+                    break;
+                case "service":
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE code = '" + donnee.get(1) + "'";
+                    break;
+                case "soigne":
+                    requeteMaj = "DELETE from " + donnee.get(0) + " WHERE no_malade = '" + donnee.get(1) + "'";
+                    break;
+                default:
+                    break;
+            }
+        }
+        return requeteMaj;
     }
 
     /**
