@@ -28,8 +28,7 @@ public class Fenetre extends JFrame implements ActionListener
     private JPanel pan, pan2, pan3;//fenêtre de visualisation de l'interface d'origine
     private JLabel lab, lab2, lab3,lab4,lab5,lab6;//instancie la texte
     // instancie les boutons
-    private JButton b1,b2,b3,b4; 
-//    private JButton b5;
+    private JButton b1,b2,b3,b4,b5; 
     private JButton bv1,bv2,bv21,bv22,bv23,bv24,bv25,bv26,bv27,bv28,bv3;
     private JComboBox box,box2;
     private JTextField jtf, jtf2, jtf3, jtf4, jtf5, jtf6;
@@ -52,7 +51,7 @@ public class Fenetre extends JFrame implements ActionListener
         b2=new JButton("Mise à jour");
         b3=new JButton("Reporting");
         b4=new JButton("Quitter");
-//        b5=new JButton("Précédent"); test bouton précédent
+        b5=new JButton("Précédent");
         bv1=new JButton("Valider");
         bv2=new JButton("Valider");
         bv3=new JButton("Valider");
@@ -92,7 +91,7 @@ public class Fenetre extends JFrame implements ActionListener
         b2.setPreferredSize(new Dimension(200,50));
         b3.setPreferredSize(new Dimension(200,50));
         b4.setPreferredSize(new Dimension(100,50));
-//        b5.setPreferredSize(new Dimension(100,50));
+        b5.setPreferredSize(new Dimension(100,50));
         bv1.setPreferredSize(new Dimension(100,50));
         bv2.setPreferredSize(new Dimension(100,50));
         bv3.setPreferredSize(new Dimension(100,50));
@@ -122,11 +121,12 @@ public class Fenetre extends JFrame implements ActionListener
         pan.add(b2);
         pan.add(b3);
         pan.add(b4);
+        //initialisation des listeners
         b1.addActionListener(this);
         b2.addActionListener(this);
         b3.addActionListener(this);
         b4.addActionListener(this);
-//        b5.addActionListener(this);
+        b5.addActionListener(this);
         bv1.addActionListener(this);
         bv2.addActionListener(this);
         bv3.addActionListener(this);
@@ -141,7 +141,6 @@ public class Fenetre extends JFrame implements ActionListener
         add(pan);
         this.setVisible(true);
     }
-    
     @Override
     public void actionPerformed (ActionEvent e)
     {
@@ -163,7 +162,7 @@ public class Fenetre extends JFrame implements ActionListener
             pan2.add(lab3);
             pan2.add(jtf2);
             pan2.add(b4);
-//            pan2.add(b5);
+            pan2.add(b5);
             pan2.add(bv1);
             add(pan2);
             this.setVisible(true);
@@ -199,11 +198,10 @@ public class Fenetre extends JFrame implements ActionListener
         else if(e.getSource()==b4){
             System.exit(0);
         }
-//        else if(e.getSource()==b5){
-//            pan2.setVisible(false);
-//            add(pan);
-//            pan.setVisible(true);
-//        }
+        else if(e.getSource()==b5){
+            pan2.setVisible(false);
+            pan.setVisible(true);
+        }
         else if(e.getSource()==bv1){
             choix1= (String) box.getSelectedItem();
             don=jtf.getText();
